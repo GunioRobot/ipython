@@ -42,7 +42,7 @@ optional dependencies:
 
 This will get Twisted, zope.interface and Foolscap, which are needed for
 IPython's parallel computing features as well as the nose package, which will
-enable you to run IPython's test suite.  
+enable you to run IPython's test suite.
 
 .. warning::
 
@@ -130,7 +130,7 @@ further details.
 
 .. _this bug report: https://bugs.launchpad.net/ipython/+bug/382214
 
-   
+
 Installing the development version
 ----------------------------------
 
@@ -242,7 +242,7 @@ Another way of getting this is to do:
     $ easy_install ipython[test]
 
 For more installation options, see the `nose website
-<http://somethingaboutorange.com/mrl/projects/nose/>`_.  
+<http://somethingaboutorange.com/mrl/projects/nose/>`_.
 
 .. warning::
 
@@ -300,8 +300,8 @@ getting the these is to use :command:`easy_install`:
     $ easy_install Twisted
 
 Of course, you can also download the source tarballs from the Twisted website
-[Twisted]_ and the 
-`zope.interface page at PyPI <http://pypi.python.org/pypi/zope.interface>`_ 
+[Twisted]_ and the
+`zope.interface page at PyPI <http://pypi.python.org/pypi/zope.interface>`_
 and do the usual ``python setup.py install`` if you prefer.
 
 Windows is a bit different. For zope.interface and Twisted, simply get the
@@ -334,7 +334,7 @@ versions. There are a couple of options for getting this:
 2. The built-in Python 2.5 on OS X 10.5 already has it installed.
 3. There are source tarballs on the pyOpenSSL website.  On Unix-like
    platforms, these can be built using ``python seutp.py install``.
-4. There is also a binary ``.exe`` Windows installer on the 
+4. There is also a binary ``.exe`` Windows installer on the
    `pyOpenSSL website <http://pyopenssl.sourceforge.net/>`_.
 
 Dependencies for IPython.frontend (the IPython GUI)

@@ -11,7 +11,7 @@
 \fontscheme default
 \graphics default
 \paperfontsize default
-\spacing single 
+\spacing single
 \papersize Default
 \paperpackage a4
 \use_geometry 1
@@ -36,9 +36,9 @@
 \layout Title
 
 IPython
-\newline 
+\newline
 
-\size larger 
+\size larger
 New design notes
 \layout Author
 
@@ -69,15 +69,15 @@ A tentative plan for the future:
 \layout Standard
 
 However, I am starting to doubt it is feasible to keep two separate branches.
- I am leaning more towards a 
+ I am leaning more towards a
 \begin_inset ERT
 status Collapsed
 
 \layout Standard
 
-\backslash 
+\backslash
 LyX
-\end_inset 
+\end_inset
 
 -like approach, where the main branch slowly transforms and evolves.
  Having CVS support now makes this a reasonable alternative, as I don't
@@ -120,21 +120,21 @@ History bug: I often see that, under certain circumstances, the input history
 \layout Itemize
 
 
-\series bold 
+\series bold
 Redesign the output traps.
 
-\series default 
+\series default
  They cause problems when users try to execute code which relies on sys.stdout
  being the 'true' sys.stdout.
  They also prevent scripts which use raw_input() to work as command-line
  arguments.
-\newline 
+\newline
 The best solution is probably to print the banner first, and then just execute
  all the user code straight with no output traps at all.
  Whatever comes out comes out.
  This makes the ipython code actually simpler, and eliminates the problem
  altogether.
-\newline 
+\newline
 These things need to be ripped out, they cause no end of problems.
  For example, if user code requires acces to stdin during startup, the process
  just hangs indefinitely.
@@ -146,16 +146,16 @@ The prompt specials dictionary should be turned into a class which does
  in a certain namespace.
  Currently it's just globals, which need to be managed manually by code
  below.
- 
+
 \layout Itemize
 
 Fix coloring of prompts: the pysh color strings don't have any effect on
  prompt numbers, b/c these are controlled by the global scheme.
  Make the prompts fully user-definable, colors and all.
  This is what I said to a user:
-\newline 
-As far as the green 
-\backslash 
+\newline
+As far as the green
+\backslash
 #, this is a minor bug of the coloring code due to the vagaries of history.
  While the color strings allow you to control the coloring of most elements,
  there are a few which are still controlled by the old ipython internal
@@ -163,17 +163,17 @@ As far as the green
  So basically the input/output numbers are hardwired to the choice in the
  color scheme, and there are only 'Linux', 'LightBG' and 'NoColor' schemes
  to choose from.
- 
+
 \layout Itemize
 
 Clean up FakeModule issues.
  Currently, unittesting with embedded ipython breaks because a FakeModule
  instance overwrites __main__.
  Maybe ipython should revert back to using __main__ directly as the user
- namespace? Handling a separate namespace is proving 
-\emph on 
+ namespace? Handling a separate namespace is proving
+\emph on
 very
-\emph default 
+\emph default
  tricky in all corner cases.
 \layout Itemize
 
@@ -191,10 +191,10 @@ Fix the fact that importing a shell for embedding screws up the command-line
 Lay out the class structure so that embedding into a gtk/wx/qt app is trivial,
  much like the multithreaded gui shells now provide command-line coexistence
  with the gui toolkits.
- See 
+ See
 \begin_inset LatexCommand \url{http://www.livejournal.com/users/glyf/32396.html}
 
-\end_inset 
+\end_inset
 
 
 \layout Itemize
@@ -225,7 +225,7 @@ Logging: @logstart and -log should start logfiles in ~.ipython, but with
  sessions.
  Also the -log option should take an optional filename, instead of having
  a separate -logfile option.
-\newline 
+\newline
 In general the logging system needs a serious cleanup.
  Many functions now in Magic should be moved to Logger, and the magic @s
  should be very simple wrappers to the Logger methods.
@@ -255,10 +255,10 @@ Unit testing
 All new code should use a testing framework.
  Python seems to have very good testing facilities, I just need to learn
  how to use them.
- I should also check out QMTest at 
+ I should also check out QMTest at
 \begin_inset LatexCommand \htmlurl{http://www.codesourcery.com/qm/qmtest}
 
-\end_inset 
+\end_inset
 
 , it sounds interesting (it's Python-based too).
 \layout Section
@@ -286,29 +286,29 @@ In order to maintain the recursive inclusion system, write an 'include'
 \layout Standard
 
 
-\family typewriter 
+\family typewriter
 from IPython.Startup import *
-\newline 
+\newline
 ...
-\newline 
+\newline
 set_options(automagic=1,colors='NoColor',...)
-\newline 
+\newline
 ...
-\newline 
+\newline
 include('mysetup.py')
-\newline 
+\newline
 ...
-\newline 
+\newline
 alias('ls ls --color -l')
-\newline 
+\newline
 ...
  etc.
 \layout Standard
 
-Also, put 
-\series bold 
+Also, put
+\series bold
 all
-\series default 
+\series default
  aliases in here, out of the core code.
 \layout Standard
 
@@ -378,24 +378,24 @@ Options which are OS-dependent (such as colors and aliases) should be loaded
 \layout Standard
 
 
-\family typewriter 
+\family typewriter
 if os.name == 'posix':
-\newline 
+\newline
 include('ipythonrc-posix.py')
-\newline 
+\newline
 elif os.name == 'nt':
-\newline 
+\newline
 include('ipythonrc-nt.py')...
 \layout Standard
 
-In the 
-\family typewriter 
+In the
+\family typewriter
 -posix
-\family default 
-, 
-\family typewriter 
+\family default
+,
+\family typewriter
 -nt
-\family default 
+\family default
 , etc.
  files we'll set all os-specific options.
 \layout Section
@@ -418,14 +418,14 @@ The following shell systems are out there and I think the whole design of
 \labelwidthstring 00.00.0000
 
 IDLE This is the standard, distributed as part of Python.
- 
+
 \layout List
 \labelwidthstring 00.00.0000
 
-pyrepl 
+pyrepl
 \begin_inset LatexCommand \htmlurl{http://starship.python.net/crew/mwh/hacks/pyrepl.html}
 
-\end_inset 
+\end_inset
 
 .
  This is a text (curses-based) shell-like replacement which doesn't have
@@ -433,24 +433,24 @@ pyrepl
  one: full multi-line editing.
  This turns the interactive interpreter into a true code testing and development
  environment.
- 
+
 \layout List
 \labelwidthstring 00.00.0000
 
-PyCrust 
+PyCrust
 \begin_inset LatexCommand \htmlurl{http://sourceforge.net/projects/pycrust}
 
-\end_inset 
+\end_inset
 
 .
  Very nice, wxWindows based system.
 \layout List
 \labelwidthstring 00.00.0000
 
-PythonWin 
+PythonWin
 \begin_inset LatexCommand \htmlurl{http://starship.python.net/crew/mhammond}
 
-\end_inset 
+\end_inset
 
 .
  Similar to PyCrust in some respects, a very good and free Python development
@@ -472,10 +472,10 @@ This is the big one.
 
 The best approach is probably to have all the sub-systems which are currently
  mixins be fully independent classes which talk back only to the main instance
- (and 
-\series bold 
+ (and
+\series bold
 not
-\series default 
+\series default
  to each other).
  In the main instance there should be an object whose job is to handle communica
 tion with the sub-systems.
@@ -512,9 +512,9 @@ Build a class MagicFunction so that adding new functions is a matter of:
 \layout Standard
 
 
-\family typewriter 
+\family typewriter
 my_magic = MagicFunction(category = 'System utilities')
-\newline 
+\newline
 my_magic.__call__ = ...
 \layout Standard
 
@@ -570,11 +570,11 @@ For example I'd rather have a whos that formats an array like:
 \layout Standard
 
 
-\family typewriter 
+\family typewriter
 Variable Type Data/Length
-\newline 
------------------------------- 
-\newline 
+\newline
+------------------------------
+\newline
 a array size: 4x3 type: 'Float'
 \layout Standard
 
@@ -582,11 +582,11 @@ than
 \layout Standard
 
 
-\family typewriter 
-Variable Type Data/Length 
-\newline 
+\family typewriter
+Variable Type Data/Length
+\newline
 ------------------------------
-\newline 
+\newline
 a array [[ 0.
  1.
  2.
@@ -695,13 +695,13 @@ That's an excellent point.
  Right now the information on IPython is:
 \layout Standard
 
--ipython --help at the command line: info on command line switches 
+-ipython --help at the command line: info on command line switches
 \layout Standard
 
--? at the ipython prompt: overview of IPython 
+-? at the ipython prompt: overview of IPython
 \layout Standard
 
--magic at the ipython prompt: overview of the magic system 
+-magic at the ipython prompt: overview of the magic system
 \layout Standard
 
 -external docs (html/pdf)
@@ -711,13 +711,13 @@ All that should be better integrated seamlessly in the help() system, so
  that you can simply say:
 \layout Standard
 
-help ipython -> full documentation access 
+help ipython -> full documentation access
 \layout Standard
 
-help magic -> magic overview 
+help magic -> magic overview
 \layout Standard
 
-help profile -> help on current profile 
+help profile -> help on current profile
 \layout Standard
 
 help -> normal python help access.
@@ -727,24 +727,24 @@ Graphical object browsers
 \layout Standard
 
 I'd like a system for graphically browsing through objects.
- 
-\family typewriter 
+
+\family typewriter
 @obrowse
-\family default 
- should open a widged with all the things which 
-\family typewriter 
+\family default
+ should open a widged with all the things which
+\family typewriter
 @who
-\family default 
+\family default
  lists, but cliking on each object would open a dedicated object viewer
- (also accessible as 
-\family typewriter 
+ (also accessible as
+\family typewriter
 @oview <object>
-\family default 
+\family default
 ).
- This object viewer could show a summary of what 
-\family typewriter 
+ This object viewer could show a summary of what
+\family typewriter
 <object>?
-\family default 
+\family default
  currently shows, but also colorize source code and show it via an html
  browser, show all attributes and methods of a given object (themselves
  openable in their own viewers, since in Python everything is an object),
@@ -832,7 +832,7 @@ a) For file related commands (ls, cat, ...) it would be nice to be able to
 \layout Standard
 
 More general, this might lead to something like command specific completion
- ? 
+ ?
 \layout Standard
 
 Here's John Hunter's suggestion:
@@ -853,19 +853,19 @@ In a more advanced scenario, you might imaging that functions supplied the
 \layout Standard
 
 completed = {
-\newline 
+\newline
 '^cd
-\backslash 
+\backslash
 s+(.*)' : complete_files_and_dirs,
-\newline 
+\newline
 '^run
-\backslash 
+\backslash
 s+(.*)' : complete_files_and_dirs,
-\newline 
+\newline
 '^run
-\backslash 
+\backslash
 s+(-.*)' : complete_run_options,
-\newline 
+\newline
 }
 \layout Standard
 
@@ -990,8 +990,8 @@ should just work like a user expects.
  they are in ipython:
 \layout Standard
 
->> 3+4 
-\newline 
+>> 3+4
+\newline
 7
 \layout Standard
 
@@ -1007,10 +1007,10 @@ should just work like a user expects.
  I thihk this will make it necessary to use $var for name expansions:
 \layout Standard
 
->> var='hello' # var is a Python variable 
-\newline 
->> print var hello # This is the result of a Python print command 
-\newline 
+>> var='hello' # var is a Python variable
+\newline
+>> print var hello # This is the result of a Python print command
+\newline
 >> echo $var hello # This calls the echo command, expanding 'var'.
 \layout Standard
 
@@ -1028,8 +1028,8 @@ should just work like a user expects.
 It should be possible to write code like:
 \layout Standard
 
->> for ext in ['.jpg','.gif']: 
-\newline 
+>> for ext in ['.jpg','.gif']:
+\newline
 ..
  ls file$ext
 \layout Standard
@@ -1037,7 +1037,7 @@ It should be possible to write code like:
 And have it work as 'ls file.jpg;ls file.gif'.
 \layout Subsection
 
-Smaller details 
+Smaller details
 \layout Standard
 
 If the above are considered as valid guiding principles for how such a python
@@ -1111,7 +1111,7 @@ But regardless of how variables are captured, the printout should be like
 
 But we need to move all magic functionality into a protected namespace,
  instead of the current messy name-mangling tricks (which don't scale well).
- 
+
 \layout Section
 
 Future improvements
@@ -1206,14 +1206,14 @@ Here's a rough outline of the order in which to start implementing the various
 \layout Itemize
 
 Make Logger and Magic not be mixins but attributes of the main class.
- 
-\begin_deeper 
+
+\begin_deeper
 \layout Itemize
 
 Magic should have a pointer back to the main instance (even if this creates
  a recursive structure) so it can control it with minimal message-passing
  machinery.
- 
+
 \layout Itemize
 
 Logger can be a standalone object, simply with a nice, clean interface.
@@ -1222,40 +1222,40 @@ Logger can be a standalone object, simply with a nice, clean interface.
 Logger currently handles part of the prompt caching, but other parts of
  that are in the prompts class itself.
  Clean up.
-\end_deeper 
+\end_deeper
 \layout Itemize
 
 Change to python-based config system.
 \layout Itemize
 
 Move make_IPython() into the main shell class, as part of the constructor.
- Do this 
-\emph on 
-after 
-\emph default 
+ Do this
+\emph on
+after
+\emph default
 the config system has been changed, debugging will be a lot easier then.
 \layout Itemize
 
 Merge the embeddable class and the normal one into one.
- After all, the standard ipython script 
-\emph on 
+ After all, the standard ipython script
+\emph on
 is
-\emph default 
+\emph default
  a python program with IPython embedded in it.
  There's no need for two separate classes (
-\emph on 
+\emph on
 maybe
-\emph default 
+\emph default
  keep the old one around for the sake of backwards compatibility).
 \layout Section
 
 Ville Vainio's suggestions
 \layout Standard
 
-Some notes sent in by Ville Vainio 
-\family typewriter 
+Some notes sent in by Ville Vainio
+\family typewriter
 <vivainio@kolumbus.fi>
-\family default 
+\family default
  on Tue, 29 Jun 2004.
  Keep here for reference, some of it replicates things already said above.
 \layout Standard

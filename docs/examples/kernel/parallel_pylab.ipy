@@ -3,7 +3,7 @@
 The idea here is to run matplotlib is the same IPython session
 as an ipython RemoteController client.  That way matplotlib
 can be used to plot parallel data that is gathered using
-RemoteController.  
+RemoteController.
 
 To run this example, first start the IPython controller and 4
 engines::
@@ -13,9 +13,9 @@ engines::
 Then start ipython in pylab mode::
 
     ipython -pylab
-    
+
 Then a simple "run parallel_pylab.ipy" in IPython will run the
-example. 
+example.
 """
 
 import numpy as N

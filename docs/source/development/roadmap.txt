@@ -24,7 +24,7 @@ Release 0.11
 
 * Refactor the configuration system (done).
 
-* Prepare to refactor IPython's core by creating a new component and 
+* Prepare to refactor IPython's core by creating a new component and
   application system (done).
 
 * Start to refactor IPython's core by turning everything into components
@@ -102,9 +102,9 @@ Currently, we have a number of performance issues in :mod:`IPython.kernel`:
 Porting to 3.0
 ==============
 
-There are no definite plans for porting of IPython to Python 3. The major 
-issue is the dependency on Twisted framework for the networking/threading 
-stuff. It is possible that it the traditional IPython interactive console 
+There are no definite plans for porting of IPython to Python 3. The major
+issue is the dependency on Twisted framework for the networking/threading
+stuff. It is possible that it the traditional IPython interactive console
 could be ported more easily since it has no such dependency. Here are a few
 things that will need to be considered when doing such a port especially
 if we want to have a codebase that works directly on both 2.x and 3.x.

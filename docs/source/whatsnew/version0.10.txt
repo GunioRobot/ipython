@@ -209,7 +209,7 @@ New features
 
 * The developer guidelines in the documentation have been updated to explain
   our workflow using :command:`bzr` and Launchpad.
-  
+
 * Fully refactored :command:`ipcluster` command line program for starting
   IPython clusters.  This new version is a complete rewrite and 1) is fully
   cross platform (we now use Twisted's process management), 2) has much
@@ -227,7 +227,7 @@ New features
 
 * sh profile: easy way to give 'title' to prompt: assign to variable
   '_prompt_title'. It looks like this::
-      
+
         [~]|1> _prompt_title = 'sudo!'
         sudo![~]|2>
 
@@ -243,7 +243,7 @@ Bug fixes
 
 * Fix #368719, removed top-level debian/ directory to make the job of Debian
   packagers easier.
-  
+
 * Fix #291143 by including man pages contributed by Stephan Peijnik from the
   Debian project.
 
@@ -292,7 +292,7 @@ Bug fixes
 
 * Many other small bug fixes not listed here by number (see the bzr log for
   more info).
-  
+
 Backwards incompatible changes
 ------------------------------
 

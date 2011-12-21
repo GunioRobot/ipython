@@ -13,7 +13,7 @@ runtime components for IPython. Plugins are different from extensions:
 * Plugins add entirely new capabilities to IPython.
 * Plugins are traited and configurable.
 
-At this point, our plugin system is brand new and the documentation is 
+At this point, our plugin system is brand new and the documentation is
 minimal. If you are interested in creating a new plugin, see the following
 files:
 

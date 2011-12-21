@@ -5,7 +5,7 @@ Notes on code execution in :class:`InteractiveShell`
 Overview
 ========
 
-This section contains information and notes about the code execution 
+This section contains information and notes about the code execution
 system in :class:`InteractiveShell`.  This system needs to be refactored
 and we are keeping notes about this process here.
 

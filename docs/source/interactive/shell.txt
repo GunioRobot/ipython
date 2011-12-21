@@ -161,7 +161,7 @@ The sh profile uses the following prompt configurations::
     o.prompt_in2= r'\C_Green|\C_LightGreen\D\C_Green>'
 
 You can change the prompt configuration to your liking by editing
-ipy_user_conf.py.  
+ipy_user_conf.py.
 
 String lists
 ============
@@ -279,7 +279,7 @@ First, capture output of "hg status"::
     11: build\bdist.win32\winexe\temp\_hashlib.py
     12: build\bdist.win32\winexe\temp\_socket.py
 
-Now we can just remove these files by doing 'rm $junk.s'. 
+Now we can just remove these files by doing 'rm $junk.s'.
 
 The .s, .n, .p properties
 =========================

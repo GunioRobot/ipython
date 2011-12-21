@@ -19,7 +19,7 @@ within and between hosts.
    IPython messaging protocol, and all developers are strongly encouraged to
    keep it updated as the implementation evolves, so that we have a single
    common reference for all protocol details.
-   
+
 The basic design is explained in the following diagram:
 
 .. image:: frontend-kernel.png
@@ -78,7 +78,7 @@ representation of all the data, we can communicate with such clients.
    Not all of these have yet been fully fleshed out, but the key ones are, see
    kernel and frontend files for actual implementation details.
 
-   
+
 Python functional API
 =====================
 
@@ -93,7 +93,7 @@ General Message Format
 
 All messages send or received by any IPython process should have the following
 generic structure::
-    
+
     {
       # The message header contains a pair of unique identifiers for the
       # originating session and the actual message id, in addition to the
@@ -297,7 +297,7 @@ be done in the prompts.  The value of this counter will be returned as the
 
 Execution results
 ~~~~~~~~~~~~~~~~~
-    
+
 Message type: ``execute_reply``::
 
     content = {
@@ -332,7 +332,7 @@ When status is 'ok', the following extra fields are present::
       }
 
 .. admonition:: Execution payloads
-    
+
    The notion of an 'execution payload' is different from a return value of a
    given set of code, which normally is just displayed on the pyout stream
    through the PUB socket.  The idea of a payload is to allow special types of
@@ -345,7 +345,7 @@ When status is 'ok', the following extra fields are present::
    though this API is still in the design stages.  The data returned in this
    payload will allow frontends to present special views of what just happened.
 
-   
+
 When status is 'error', the following extra fields are present::
 
     {
@@ -374,7 +374,7 @@ Kernel attribute access
 
    This part of the messaging spec is not actually implemented in the kernel
    yet.
- 
+
 While this protocol does not specify full RPC access to arbitrary methods of
 the kernel object, the kernel does allow read (and in some cases write) access
 to certain attributes.
@@ -416,7 +416,7 @@ Message type: ``setattr_request``::
     content = {
         # The (possibly dotted) name of the attribute
 	'name' : str,
-	
+
 	# A JSON-encoded object, that will be validated by the Traits
 	# information in the kernel
 	'value' : object,
@@ -424,7 +424,7 @@ Message type: ``setattr_request``::
 
 When a ``setattr_request`` fails, there are also two possible error types with
 similar meanings  as those of the ``getattr_request`` case, but for writing.
-    
+
 Message type: ``setattr_reply``::
 
     content = {
@@ -433,7 +433,7 @@ Message type: ``setattr_reply``::
     }
 
 
-    
+
 Object information
 ------------------
 
@@ -458,17 +458,17 @@ Message type: ``object_info_request``::
 
 The returned information will be a dictionary with keys very similar to the
 field names that IPython prints at the terminal.
-    
+
 Message type: ``object_info_reply``::
 
     content = {
     # The name the object was requested under
     'name' : str,
-    
+
     # Boolean flag indicating whether the named object was found or not.  If
     # it's false, all other fields will be empty.
     'found' : bool,
-    
+
     # Flags for magics and system aliases
     'ismagic' : bool,
     'isalias' : bool,
@@ -520,7 +520,7 @@ Message type: ``object_info_reply``::
     # For instances, provide the constructor signature (the definition of
     # the __init__ method):
     'init_definition' : str,
-    
+
     # Docstrings: for any object (function, method, module, package) with a
     # docstring, we show it.  But in addition, we may provide additional
     # docstrings.  For example, for instances we will show the constructor
@@ -530,19 +530,19 @@ Message type: ``object_info_reply``::
     # For instances, provide the constructor and class docstrings
     'init_docstring' : str,
     'class_docstring' : str,
-    
+
     # If it's a callable object whose call method has a separate docstring and
     # definition line:
     'call_def' : str,
     'call_docstring' : str,
-    
+
     # If detail_level was 1, we also try to find the source code that
     # defines the object, if possible.  The string 'None' will indicate
     # that no source was found.
     'source' : str,
     }
 '
-    
+
 Complete
 --------
 
@@ -561,7 +561,7 @@ Message type: ``complete_request``::
     # case of multiline completions where more context may be needed.  Note: if
     # in practice this field proves unnecessary, remove it to lighten the
     # messages.
-    
+
     'block' : str,
 
     # The position of the cursor where the user hit 'TAB' on the line.
@@ -576,7 +576,7 @@ Message type: ``complete_reply``::
     'matches' : list
     }
 
-    
+
 History
 -------
 
@@ -587,7 +587,7 @@ request it from the kernel when needed.
 Message type: ``history_request``::
 
     content = {
-    
+
       # If True, also return output history in the resulting dict.
       'output' : bool,
 
@@ -677,7 +677,7 @@ Message type: ``shutdown_reply``::
    When the clients detect a dead kernel thanks to inactivity on the heartbeat
    socket, they simply send a forceful process termination signal, since a dead
    process is unlikely to respond in any useful way to messages.
-    
+
 
 Messages on the PUB/SUB socket
 ==============================
@@ -690,7 +690,7 @@ Message type: ``stream``::
     content = {
         # The name of the stream is one of 'stdin', 'stdout', 'stderr'
     'name' : str,
-    
+
     # The data is an arbitrary string to be written to that stream
     'data' : str,
     }
@@ -743,7 +743,7 @@ Message type: ``pyout``::
         # The data is typically the repr() of the object. It should be displayed
         # as monospaced text.
         'data' : str,
-    
+
         # The counter for this execution is also provided so that clients can
         # display it, since IPython automatically creates variables called _N
         # (for prompt N).
@@ -755,7 +755,7 @@ Message type: ``pyout``::
            [str, str, object]
         ]
     }
-    
+
 Python errors
 -------------
 
@@ -803,9 +803,9 @@ Message type: ``crash``::
 
 Future ideas
 ------------
-    
+
 Other potential message types, currently unimplemented, listed below as ideas.
-    
+
 Message type: ``file``::
 
     content = {
@@ -814,7 +814,7 @@ Message type: ``file``::
     'data' : str,
     }
 
-    
+
 Messages on the REQ/REP socket
 ==============================
 
@@ -831,7 +831,7 @@ Message type: ``input_request``::
 Message type: ``input_reply``::
 
     content = { 'value' : str }
-    
+
 .. Note::
 
    We do not explicitly try to forward the raw ``sys.stdin`` object, because in
@@ -843,7 +843,7 @@ Message type: ``input_reply``::
    transported over the zmq connection), raw ``stdin`` isn't expected to be
    available.
 
-   
+
 Heartbeat for kernels
 =====================
 

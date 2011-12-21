@@ -89,7 +89,7 @@ where comments can explain the role of each variable and when possible,
 sensible deafaults can be assigned.
 
 .. Warning::
-    
+
     If an attribute is meant to contain a mutable object, it should be set to
     ``None`` in the class and its mutable value should be set in the object's
     constructor.  Since class attributes are shared by all instances, failure
@@ -106,12 +106,12 @@ A simple example::
         y = None
         # z starts as an empty list, must be set in constructor
         z = None
-        
+
         def __init__(self, y):
             self.y = y
             self.z = []
 
-	    
+
 New files
 =========
 

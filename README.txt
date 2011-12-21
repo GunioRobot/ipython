@@ -22,7 +22,7 @@ Officially, IPython requires Python version 2.6 or 2.7.  An experimental port
 of IPython to Python 3.x has been sarted, and is available at
 http://github.com/takowl/ipython/tree/ipython-py3k.
 
-    
+
 Instant running
 ===============
 
@@ -32,4 +32,4 @@ by typing at the terminal:
 .. code-block:: bash
 
    python ipython.py
-   
+

@@ -68,7 +68,7 @@ def run_these_lines():
         #print "lines %d-%d sent to ipython"% (r.start,r.end)
     else:
         raise Exception, "Not connected to an IPython server"
-    
+
     #reselect the previously highlighted block
     if reselect:
         vim.command("normal gv")
@@ -84,11 +84,11 @@ def set_breakpoint():
     if check_server():
         send("__IP.InteractiveTB.pdb.set_break('%s',%d)" % (vim.current.buffer.name,
                                                             vim.current.window.cursor[0]))
-        print "set breakpoint in %s:%d"% (vim.current.buffer.name, 
+        print "set breakpoint in %s:%d"% (vim.current.buffer.name,
                                           vim.current.window.cursor[0])
     else:
         raise Exception, "Not connected to an IPython server"
-    
+
 def clear_breakpoint():
     if check_server():
         send("__IP.InteractiveTB.pdb.clear_break('%s',%d)" % (vim.current.buffer.name,

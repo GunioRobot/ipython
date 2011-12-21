@@ -192,7 +192,7 @@ except CompositeError:
 try:
     pr.r
 except CompositeError:
-    print "Caught ZeroDivisionError OK."  
+    print "Caught ZeroDivisionError OK."
 
 # push/pull
 

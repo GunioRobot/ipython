@@ -41,33 +41,33 @@ What about all the other parallel computing packages in Python?
 
 Some of the unique characteristic of IPython are:
 
-* IPython is the only architecture that abstracts out the notion of a 
+* IPython is the only architecture that abstracts out the notion of a
   parallel computation in such a way that new models of parallel computing
   can be explored quickly and easily.  If you don't like the models we
   provide, you can simply create your own using the capabilities we provide.
-  
+
 * IPython is asynchronous from the ground up (we use `Twisted`_).
 
-* IPython's architecture is designed to avoid subtle problems 
+* IPython's architecture is designed to avoid subtle problems
   that emerge because of Python's global interpreter lock (GIL).
-  
+
 * While IPython's architecture is designed to support a wide range
   of novel parallel computing models, it is fully interoperable with
   traditional MPI applications.
-  
+
 * IPython has been used and tested extensively on modern supercomputers.
 
-* IPython's networking layers are completely modular.  Thus, is 
-  straightforward to replace our existing network protocols with 
+* IPython's networking layers are completely modular.  Thus, is
+  straightforward to replace our existing network protocols with
   high performance alternatives (ones based upon Myranet/Infiniband).
-  
+
 * IPython is designed from the ground up to support collaborative
   parallel computing.  This enables multiple users to actively develop
   and run the *same* parallel computation.
-  
+
 * Interactivity is a central goal for us.  While IPython does not have
   to be used interactivly, it can be.
-      
+
 .. _Twisted: http://www.twistedmatrix.com
 
 Why The IPython controller a bottleneck in my parallel calculation?

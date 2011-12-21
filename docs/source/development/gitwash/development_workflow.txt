@@ -22,7 +22,7 @@ Workflow summary
 This way of working really helps to keep work well organized, and in
 keeping history as clear as possible.
 
-See - for example - `linux git workflow`_. 
+See - for example - `linux git workflow`_.
 
 Making a new feature branch
 ===========================
@@ -78,7 +78,7 @@ In more detail
 
 #. Check what the actual changes are with ``git diff`` (`git diff`_).
 #. Add any new files to version control ``git add new_file_name`` (see
-   `git add`_). 
+   `git add`_).
 #. To commit all modified files into the local copy of your repo,, do
    ``git commit -am 'A commit message'``.  Note the ``-am`` options to
    ``commit``. The ``m`` flag just signals that you're going to type a
@@ -86,7 +86,7 @@ In more detail
    faith - or see `why the -a flag?`_. See also the `git commit`_ manual
    page.
 #. To push the changes up to your forked repo on github_, do a ``git
-   push`` (see `git push`). 
+   push`` (see `git push`).
 
 Asking for code review
 ======================
@@ -137,7 +137,7 @@ When you are ready to ask for the merge of your code:
 Merging from trunk
 ==================
 
-This updates your code from the upstream `ipython github`_  repo. 
+This updates your code from the upstream `ipython github`_  repo.
 
 Overview
 --------

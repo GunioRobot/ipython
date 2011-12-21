@@ -123,14 +123,14 @@ sessions or used as code for your programs.
 In particular, note taht the %rep magic function can repeat a command or get a
 command to the input line for further editing::
 
-        $ l = ["hei", "vaan"]       
-        $ "".join(l)        
-        ==> heivaan        
-        $ %rep        
-        $ heivaan_ <== cursor blinking    
-   
+        $ l = ["hei", "vaan"]
+        $ "".join(l)
+        ==> heivaan
+        $ %rep
+        $ heivaan_ <== cursor blinking
+
 For more details, type ``%rep?`` as usual.
-	
+
 Define your own system aliases
 ------------------------------
 
@@ -220,7 +220,7 @@ to see your input history, so you can see the line numbers of all input.
 Let us say that you'd like to reuse lines 10 through 20, plus lines 24
 and 28. All the commands below can operate on these with the syntax::
 
-    %command 10-20 24 28 
+    %command 10-20 24 28
 
 where the command given can be:
 
@@ -324,7 +324,7 @@ made a profile for my project (which is called "parkfield")::
 
 I also added a shell alias for convenience::
 
-    alias parkfield="ipython -pylab -profile parkfield" 
+    alias parkfield="ipython -pylab -profile parkfield"
 
 Now I have a nice little directory with everything I ever type in,
 organized by project and date.

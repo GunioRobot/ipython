@@ -20,7 +20,7 @@ are summarized here:
 * The IPython *engine*.  This process is a full blown Python
   interpreter in which user code is executed.  Multiple
   engines are started to make parallel computing possible.
-* The IPython *controller*.  This process manages a set of 
+* The IPython *controller*.  This process manages a set of
   engines, maintaining a queue for each and presenting
   an asynchronous interface to the set of engines.
 * The IPython *client*.  This process is typically an
@@ -101,7 +101,7 @@ analogous to using a physical key to gain access to physical items
 For a capabilities based authentication system to prevent unauthorized access,
 two things must be ensured:
 
-* The keys must be cryptographically strong.  Otherwise attackers could gain 
+* The keys must be cryptographically strong.  Otherwise attackers could gain
   access by a simple brute force key guessing attack.
 * The actual keys must be distributed only to authorized parties.
 
@@ -113,7 +113,7 @@ controller creates a number of FURLs for different purposes:
   implicit in this access is permission to execute code sent by an
   authenticated IPython client.
 * Two or more FURLs that grant IPython clients access to the controller.
-  Implicit in this access is permission to give the controller's engine code 
+  Implicit in this access is permission to give the controller's engine code
   to execute.
 
 Upon starting, the controller creates these different FURLS and writes them
@@ -143,7 +143,7 @@ Upon starting, all IPython processes do the following:
 
 1. Create a public key x509 certificate (ISO/IEC 9594).
 2. Create a hash of the contents of the certificate using the SHA-1 algorithm.
-   The base-32 encoded version of this hash is saved by the process as its 
+   The base-32 encoded version of this hash is saved by the process as its
    process id (actually in Foolscap, this is the Tub id, but here refer to
    it as the process id).
 
@@ -153,8 +153,8 @@ Upon starting, the IPython controller also does the following:
    certificate is never saved to disk.
 2. Create a FURL for each capability that the controller has.  There are
    separate capabilities the controller offers for clients and engines.  The
-   FURL is created using:  a) the process id of the SERVER, b) the IP 
-   address and port the SERVER is listening on and c) a 160 bit,    
+   FURL is created using:  a) the process id of the SERVER, b) the IP
+   address and port the SERVER is listening on and c) a 160 bit,
    cryptographically secure string that represents the capability (the
    "capability id").
 3. The FURLs are saved to disk in a secure location on the SERVER's host.
@@ -170,11 +170,11 @@ place:
 
 1. The CLIENT tells the SERVER what process (or Tub) id it expects the SERVER
    to have.
-2. If the SERVER has that process id, it notifies the CLIENT that it will now 
+2. If the SERVER has that process id, it notifies the CLIENT that it will now
    enter encrypted mode.  If the SERVER has a different id, the SERVER aborts.
 3. Both CLIENT and SERVER initiate the SSL handshake protocol.
 4. Both CLIENT and SERVER request the certificate of their peer and verify
-   that certificate.  If this succeeds, all further communications are 
+   that certificate.  If this succeeds, all further communications are
    encrypted.
 5. Both CLIENT and SERVER send a hello block containing connection parameters
    and their process id.
@@ -182,7 +182,7 @@ place:
    hash of the x509 certificate the peer presented.  If not, the connection is
    aborted.
 7. The CLIENT verifies that the SERVER's stated id matches the id of the
-   SERVER the CLIENT is intending to connect to.  If not, the connection is 
+   SERVER the CLIENT is intending to connect to.  If not, the connection is
    aborted.
 8. The CLIENT and SERVER elect a master who decides on the final connection
    parameters.
@@ -196,7 +196,7 @@ keeps their own private key hidden and sends its peer only the public key
 Finally, when the CLIENT requests access to a particular SERVER capability,
 the following happens:
 
-1. The CLIENT asks the SERVER for access to a capability by presenting that 
+1. The CLIENT asks the SERVER for access to a capability by presenting that
    capabilities id.
 2. If the SERVER has a capability with that id, access is granted. If not,
    access is not granted.
@@ -284,7 +284,7 @@ or:
 
 * The user has to use SSH port forwarding to tunnel the
   connections through the firewall.
-   
+
 In either case, an attacker is presented with addition barriers that prevent
 attacking or even probing the system.
 

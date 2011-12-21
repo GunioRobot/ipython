@@ -13,7 +13,7 @@ of IPython.  Here is a sample extension::
     # myextension.py
 
     def load_ipython_extension(ipython):
-        # The ``ipython`` argument is the currently active 
+        # The ``ipython`` argument is the currently active
         # :class:`InteractiveShell` instance that can be used in any way.
         # This allows you do to things like register new magics, plugins or
         # aliases.

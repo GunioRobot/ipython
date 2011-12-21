@@ -39,7 +39,7 @@ generating release notes is as painless and accurate as possible.
   this is just a reminder to keep things up. As a note, if you are ever
   committing something that is completely (or almost so) a third-party
   contribution, do the commit as::
-  
+
     $ git commit --author="Someone Else"
 
   This way it will show that name separately in the log, which makes it even
@@ -48,5 +48,5 @@ generating release notes is as painless and accurate as possible.
   touch the code too much.
 
 
-.. [Git] The Git version control system. 
+.. [Git] The Git version control system.
 .. [Github.com] Github.com. http://github.com

@@ -58,7 +58,7 @@ Component: :class:`~IPython.config.configurable.Configurable`
     itself. Class level traits with the metadata ``config=True`` become
     values that can be configured from the command line and configuration
     files.
-    
+
     Developers create :class:`~IPython.config.configurable.Configurable`
     subclasses that implement all of the logic in the application. Each of
     these subclasses has its own configuration information that controls how
@@ -80,10 +80,10 @@ Configuration objects and files
 ===============================
 
 A configuration file is simply a pure Python file that sets the attributes
-of a global, pre-created configuration object.  This configuration object is a 
+of a global, pre-created configuration object.  This configuration object is a
 :class:`~IPython.config.loader.Config` instance.  While in a configuration
 file, to get a reference to this object, simply call the :func:`get_config`
-function.  We inject this function into the global namespace that the 
+function.  We inject this function into the global namespace that the
 configuration file is executed in.
 
 Here is an example of a super simple configuration file that does nothing::
@@ -104,7 +104,7 @@ subclass::
     # Sample component that can be configured.
     from IPython.config.configurable import Configurable
     from IPython.utils.traitlets import Int, Float, Str, Bool
-    
+
     class MyClass(Configurable):
         name = Str('defaultname', config=True)
         ranking = Int(0, config=True)
@@ -119,7 +119,7 @@ to configure this class in a configuration file::
 
     # Sample config file
     c = get_config()
-    
+
     c.MyClass.name = 'coolname'
     c.MyClass.ranking = 10
 
@@ -127,7 +127,7 @@ After this configuration file is loaded, the values set in it will override
 the class defaults anytime a :class:`MyClass` is created.  Furthermore,
 these attributes will be type checked and validated anytime they are set.
 This type checking is handled by the :mod:`IPython.utils.traitlets` module,
-which provides the :class:`Str`, :class:`Int` and :class:`Float` types.  In 
+which provides the :class:`Str`, :class:`Int` and :class:`Float` types.  In
 addition to these traitlets, the :mod:`IPython.utils.traitlets` provides
 traitlets for a number of other types.
 
@@ -144,7 +144,7 @@ traitlets for a number of other types.
     :mod:`enthought.traits` as we are committed to the core of IPython being
     pure Python.
 
-It should be very clear at this point what the naming convention is for 
+It should be very clear at this point what the naming convention is for
 configuration attributes::
 
     c.ClassName.attribute_name = attribute_value
@@ -185,10 +185,10 @@ into the configuration file :file:`main_config.py`::
 
     # main_config.py
     c = get_config()
-    
+
     # Load everything from base_config.py
     load_subconfig('base_config.py')
-    
+
     # Now override one of the values
     c.MyClass.name = 'bettername'
 
@@ -206,11 +206,11 @@ to be reflected in the configuration system.  Here is a simple example::
 
     from IPython.config.configurable import Configurable
     from IPython.utils.traitlets import Int, Float, Str, Bool
-    
+
     class Foo(Configurable):
         name = Str('fooname', config=True)
         value = Float(100.0, config=True)
-    
+
     class Bar(Foo):
         name = Str('barname', config=True)
         othervalue = Int(0, config=True)
@@ -220,7 +220,7 @@ and :class:`Bar`::
 
     # config file
     c = get_config()
-    
+
     c.Foo.name = 'bestname'
     c.Bar.othervalue = 10
 
@@ -249,7 +249,7 @@ this directory is determined by the following algorithm:
   environment variable and then default to the directory
   :file:`$HOME/.ipython`.
 
-For most users, the default value will simply be something like 
+For most users, the default value will simply be something like
 :file:`$HOME/.ipython`.
 
 Once the location of the IPython directory has been determined, you need to
@@ -302,7 +302,7 @@ Here are the main requirements we wanted our configuration system to have:
 * Full integration with command line option parsers.  Often, you want to read
   a configuration file, but then override some of the values with command line
   options.  Our configuration system automates this process and allows each
-  command line option to be linked to a particular attribute in the 
+  command line option to be linked to a particular attribute in the
   configuration hierarchy that it will override.
 
 * Configuration files that are themselves valid Python code. This accomplishes

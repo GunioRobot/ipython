@@ -114,57 +114,57 @@ using our :func:`psum` function:
 .. sourcecode:: ipython
 
     In [1]: from IPython.kernel import client
-    
+
     In [2]: mec = client.MultiEngineClient()
-    
+
     In [3]: mec.activate()
-    
+
     In [4]: px import numpy as np
     Parallel execution on engines: all
-    Out[4]: 
+    Out[4]:
     <Results List>
     [0] In [13]: import numpy as np
     [1] In [13]: import numpy as np
     [2] In [13]: import numpy as np
     [3] In [13]: import numpy as np
-    
+
     In [6]: px a = np.random.rand(100)
     Parallel execution on engines: all
-    Out[6]: 
+    Out[6]:
     <Results List>
     [0] In [15]: a = np.random.rand(100)
     [1] In [15]: a = np.random.rand(100)
     [2] In [15]: a = np.random.rand(100)
     [3] In [15]: a = np.random.rand(100)
-    
+
     In [7]: px from psum import psum
     Parallel execution on engines: all
-    Out[7]: 
+    Out[7]:
     <Results List>
     [0] In [16]: from psum import psum
     [1] In [16]: from psum import psum
     [2] In [16]: from psum import psum
     [3] In [16]: from psum import psum
-    
+
     In [8]: px s = psum(a)
     Parallel execution on engines: all
-    Out[8]: 
+    Out[8]:
     <Results List>
     [0] In [17]: s = psum(a)
     [1] In [17]: s = psum(a)
     [2] In [17]: s = psum(a)
     [3] In [17]: s = psum(a)
-    
+
     In [9]: px print s
     Parallel execution on engines: all
-    Out[9]: 
+    Out[9]:
     <Results List>
     [0] In [18]: print s
     [0] Out[18]: 187.451545803
-    
+
     [1] In [18]: print s
     [1] Out[18]: 187.451545803
-    
+
     [2] In [18]: print s
     [2] Out[18]: 187.451545803
 

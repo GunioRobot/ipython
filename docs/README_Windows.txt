@@ -11,9 +11,9 @@ IPython runs under (as far as the Windows family is concerned):
 
 - Windows XP (I think WinNT/2000 are ok): works well.  It needs:
 
-  * Gary Bishop's readline from 
+  * Gary Bishop's readline from
     http://sourceforge.net/projects/uncpythontools.
-    
+
   * This in turn requires Tomas Heller's ctypes from
     http://starship.python.net/crew/theller/ctypes.
 

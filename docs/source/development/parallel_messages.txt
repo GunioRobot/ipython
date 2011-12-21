@@ -13,18 +13,18 @@ The Controller
 --------------
 
 The controller is the central process of the IPython parallel computing model.  It has 3 Devices:
-    
+
     * Heartbeater
     * Multiplexed Queue
     * Task Queue
-    
+
 and 3 sockets:
-    
+
     * ``XREP`` for both engine and client registration
     * ``PUB`` for notification of engine changes
     * ``XREP`` for client requests
-    
-    
+
+
 
 Registration (``XREP``)
 ***********************
@@ -58,7 +58,7 @@ Message type: ``registration_reply``::
 Clients use the same socket to start their connections. Connection requests from clients need no information:
 
 Message type: ``connection_request``::
-    
+
     content = {}
 
 The reply to a Client registration request contains the connection information for the multiplexer and load balanced queues, as well as the address for direct controller queries. If any of these addresses is `None`, that functionality is not available.
@@ -171,7 +171,7 @@ Message type: ``purge_reply``::
 The `Namespace <http://gist.github.com/483294>`_ model suggests that execution be able to use the model::
 
     client.apply(f, *args, **kwargs)
-    
+
 which takes `f`, a function in the user's namespace, and executes ``f(*args, **kwargs)`` on a remote engine, returning the result (or, for non-blocking, information facilitating later retrieval of the result).  This model, unlike the execute message which just uses a code string, must be able to send arbitrary (pickleable) Python objects. And ideally, copy as little data as we can.  The `buffers` property of a Message was introduced for this purpose.
 
 Utility method :func:`build_apply_message` in :mod:`IPython.zmq.streamsession` wraps a function signature and builds the correct buffer format.

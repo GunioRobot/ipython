@@ -40,7 +40,7 @@ Use cases::
 
     def func(arg): pass  # note signature, no 'self'
     ip.expose_magic('name',func)
-    
+
     def func_line(arg): pass
     def func_block(arg):pass
     ip.expose_magic('name',func_line,func_block)

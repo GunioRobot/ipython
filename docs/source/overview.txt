@@ -34,7 +34,7 @@ amongst others:
    working interactively. It tries to be a very efficient environment
    both for Python code development and for exploration of problems
    using Python objects (in situations like data analysis).
-  
+
 2. Serve as an embeddable, ready to use interpreter for your own
    programs. IPython can be started with a single call from inside
    another program, providing access to the current namespace. This
@@ -42,13 +42,13 @@ amongst others:
    where a blend of batch-processing and interactive exploration are
    needed.  New in the 0.9 version of IPython is a reusable wxPython
    based IPython widget.
-  
+
 3. Offer a flexible framework which can be used as the base
    environment for other systems with Python as the underlying
    language. Specifically scientific environments like Mathematica,
    IDL and Matlab inspired its design, but similar ideas can be
    useful in many fields.
-  
+
 4. Allow interactive testing of threaded graphical toolkits. IPython
    has support for interactive, non-blocking control of GTK, Qt and
    WX applications via special threading flags. The normal Python
@@ -61,14 +61,14 @@ Main features of the interactive shell
   definition prototypes, source code, source files and other details
   of any object accessible to the interpreter with a single
   keystroke (:samp:`?`, and using :samp:`??` provides additional detail).
-  
+
 * Searching through modules and namespaces with :samp:`*` wildcards, both
   when using the :samp:`?` system and via the :samp:`%psearch` command.
 
 * Completion in the local namespace, by typing :kbd:`TAB` at the prompt.
   This works for keywords, modules, methods, variables and files in the
   current directory. This is supported via the readline library, and
-  full access to configuring readline's behavior is provided. 
+  full access to configuring readline's behavior is provided.
   Custom completers can be implemented easily for different purposes
   (system commands, magic arguments etc.)
 
@@ -84,7 +84,7 @@ Main features of the interactive shell
 * Alias facility for defining your own system aliases.
 
 * Complete system shell access. Lines starting with :samp:`!` are passed
-  directly to the system shell, and using :samp:`!!` or :samp:`var = !cmd` 
+  directly to the system shell, and using :samp:`!!` or :samp:`var = !cmd`
   captures shell output into python variables for further use.
 
 * Background execution of Python commands in a separate thread.
@@ -185,7 +185,7 @@ The main features of this system are:
 
 * Quickly parallelize Python code from an interactive Python/IPython session.
 
-* A flexible and dynamic process model that be deployed on anything from 
+* A flexible and dynamic process model that be deployed on anything from
   multicore workstations to supercomputers.
 
 * An architecture that supports many different styles of parallelism, from
@@ -218,7 +218,7 @@ for parallel computing.
 Portability and Python requirements
 -----------------------------------
 
-As of the 0.11 release, IPython works with either Python 2.5 or 2.6.  
+As of the 0.11 release, IPython works with either Python 2.5 or 2.6.
 Versions 0.9 and 0.10 worked with Python 2.4 as well.  We have not yet begun
 to test and port IPython to Python 3.  Our plan is to gradually drop Python 2.5
 support and then begin the transition to strict 2.6 and 3.

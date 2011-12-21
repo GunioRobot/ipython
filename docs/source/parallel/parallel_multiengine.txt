@@ -20,7 +20,7 @@ controller and four IPython engines. The simplest way of doing this is to use
 the :command:`ipcluster` command::
 
 	$ ipcluster local -n 4
-	
+
 For more detailed information about starting the controller and engines, see
 our :ref:`introduction <ip1par>` to using IPython for parallel computing.
 
@@ -33,7 +33,7 @@ and then create a :class:`MultiEngineClient` instance:
 .. sourcecode:: ipython
 
 	In [1]: from IPython.kernel import client
-	
+
 	In [2]: mec = client.MultiEngineClient()
 
 This form assumes that the :file:`ipcontroller-mec.furl` is in the
@@ -102,10 +102,10 @@ that turns any Python function into a parallel function:
     In [10]: @mec.parallel()
        ....: def f(x):
        ....:     return 10.0*x**4
-       ....: 
+       ....:
 
     In [11]: f(range(32))    # this is done in parallel
-    Out[11]: 
+    Out[11]:
     [0.0,10.0,160.0,...]
 
 See the docstring for the :meth:`parallel` decorator for options.
@@ -129,7 +129,7 @@ blocks until the engines are done executing the command:
 
 	# The default is to run on all engines
 	In [4]: mec.execute('a=5')
-	Out[4]: 
+	Out[4]:
 	<Results List>
 	[0] In [1]: a=5
 	[1] In [1]: a=5
@@ -137,7 +137,7 @@ blocks until the engines are done executing the command:
 	[3] In [1]: a=5
 
 	In [5]: mec.execute('b=10')
-	Out[5]: 
+	Out[5]:
 	<Results List>
 	[0] In [2]: b=10
 	[1] In [2]: b=10
@@ -150,21 +150,21 @@ the ``targets`` keyword argument:
 .. sourcecode:: ipython
 
 	In [6]: mec.execute('c=a+b',targets=[0,2])
-	Out[6]: 
+	Out[6]:
 	<Results List>
 	[0] In [3]: c=a+b
 	[2] In [3]: c=a+b
 
 
 	In [7]: mec.execute('c=a-b',targets=[1,3])
-	Out[7]: 
+	Out[7]:
 	<Results List>
 	[1] In [3]: c=a-b
 	[3] In [3]: c=a-b
 
 
 	In [8]: mec.execute('print c')
-	Out[8]: 
+	Out[8]:
 	<Results List>
 	[0] In [4]: print c
 	[0] Out[4]: 15
@@ -188,8 +188,8 @@ returns a Python ``dict`` that contains useful information:
 
 	In [10]: for r in result_dict:
 	   ....:     print r
-	   ....:     
-	   ....:     
+	   ....:
+	   ....:
 	{'input': {'translated': 'd=10; print d', 'raw': 'd=10; print d'}, 'number': 5, 'id': 0, 'stdout': '10\n'}
 	{'input': {'translated': 'd=10; print d', 'raw': 'd=10; print d'}, 'number': 5, 'id': 1, 'stdout': '10\n'}
 	{'input': {'translated': 'd=10; print d', 'raw': 'd=10; print d'}, 'number': 5, 'id': 2, 'stdout': '10\n'}
@@ -260,7 +260,7 @@ results are ready:
 
 	# Then, their results are ready using get_result or the r attribute
 	In [75]: pr_list[0].r
-	Out[75]: 
+	Out[75]:
 	<Results List>
 	[0] In [20]: time.sleep(3)
 	[1] In [19]: time.sleep(3)
@@ -293,7 +293,7 @@ The following examples demonstrate how to use the instance attributes:
 	In [18]: pr = mec.execute('a=5')
 
 	In [19]: pr.r
-	Out[19]: 
+	Out[19]:
 	<Results List>
 	[0] In [6]: a=5
 	[2] In [6]: a=5
@@ -304,7 +304,7 @@ The following examples demonstrate how to use the instance attributes:
 	In [21]: mec.block = True
 
 	In [22]: mec.execute('b=10; print b')
-	Out[22]: 
+	Out[22]:
 	<Results List>
 	[0] In [7]: b=10; print b
 	[0] Out[7]: 10
@@ -478,7 +478,7 @@ Here are some examples of how you use :meth:`push` and :meth:`pull`:
 
 	In [44]: %px print c
 	Executing command on Controller
-	Out[44]: 
+	Out[44]:
 	<Results List>
 	[0] In [14]: print c
 	[0] Out[14]: speed
@@ -517,13 +517,13 @@ Functions can also be pushed and pulled using :meth:`push_function` and
 
 	In [53]: def f(x):
 	   ....:     return 2.0*x**4
-	   ....: 
+	   ....:
 
 	In [54]: mec.push_function(dict(f=f))
 	Out[54]: [None, None, None, None]
 
 	In [55]: mec.execute('y = f(4.0)')
-	Out[55]: 
+	Out[55]:
 	<Results List>
 	[0] In [15]: y = f(4.0)
 	[1] In [14]: y = f(4.0)
@@ -533,7 +533,7 @@ Functions can also be pushed and pulled using :meth:`push_function` and
 
 	In [56]: px print y
 	Executing command on Controller
-	Out[56]: 
+	Out[56]:
 	<Results List>
 	[0] In [16]: print y
 	[0] Out[16]: 512.0
@@ -583,7 +583,7 @@ between engines, MPI should be used:
 
 	In [59]: px print a
 	Executing command on Controller
-	Out[59]: 
+	Out[59]:
 	<Results List>
 	[0] In [17]: print a
 	[0] Out[17]: [0, 1, 2, 3]
@@ -618,7 +618,7 @@ basic effect using :meth:`scatter` and :meth:`gather`:
 
 	In [67]: px y = [i**10 for i in x]
 	Executing command on Controller
-	Out[67]: 
+	Out[67]:
 	<Results List>
 	[0] In [19]: y = [i**10 for i in x]
 	[1] In [18]: y = [i**10 for i in x]
@@ -664,7 +664,7 @@ more other types of exceptions. Here is how it works:
 	     73         except Exception, e:
 	---> 74             raise e
 	     75     return result
-	     76 
+	     76
 
 	CompositeError: one or more exceptions from call to method: execute
 	[0:execute]: ZeroDivisionError: integer division or modulo by zero
@@ -682,8 +682,8 @@ If you want, you can even raise one of these original exceptions:
 	   ....:     mec.execute('1/0')
 	   ....: except client.CompositeError, e:
 	   ....:     e.raise_exception()
-	   ....:     
-	   ....:     
+	   ....:
+	   ....:
 	---------------------------------------------------------------------------
 	ZeroDivisionError                         Traceback (most recent call last)
 
@@ -693,7 +693,7 @@ If you want, you can even raise one of these original exceptions:
 	    156             raise IndexError("an exception with index %i does not exist"%excid)
 	    157         else:
 	--> 158             raise et, ev, etb
-	    159 
+	    159
 	    160 def collect_exceptions(rlist, method):
 
 	ZeroDivisionError: integer division or modulo by zero
@@ -722,7 +722,7 @@ instance:
 	     73         except Exception, e:
 	---> 74             raise e
 	     75     return result
-	     76 
+	     76
 
 	CompositeError: one or more exceptions from call to method: execute
 	[0:execute]: ZeroDivisionError: integer division or modulo by zero
@@ -731,8 +731,8 @@ instance:
 	[3:execute]: ZeroDivisionError: integer division or modulo by zero
 
 	In [82]: %debug
-	> 
-	
+	>
+
 	/ipython1-client-r3021/ipython1/kernel/twistedutil.py(74)blockingCallFromThread()
 	     73         except Exception, e:
 	---> 74             raise e
@@ -747,7 +747,7 @@ instance:
 	e.__doc__           e.__init__          e.__repr__          e._get_engine_str   e.print_tracebacks
 	e.__getattribute__  e.__module__        e.__setattr__       e._get_traceback    e.raise_exception
 	ipdb> e.print_tracebacks()
-	[0:execute]: 
+	[0:execute]:
 	---------------------------------------------------------------------------
 	ZeroDivisionError                         Traceback (most recent call last)
 
@@ -755,7 +755,7 @@ instance:
 
 	ZeroDivisionError: integer division or modulo by zero
 
-	[1:execute]: 
+	[1:execute]:
 	---------------------------------------------------------------------------
 	ZeroDivisionError                         Traceback (most recent call last)
 
@@ -763,7 +763,7 @@ instance:
 
 	ZeroDivisionError: integer division or modulo by zero
 
-	[2:execute]: 
+	[2:execute]:
 	---------------------------------------------------------------------------
 	ZeroDivisionError                         Traceback (most recent call last)
 
@@ -771,7 +771,7 @@ instance:
 
 	ZeroDivisionError: integer division or modulo by zero
 
-	[3:execute]: 
+	[3:execute]:
 	---------------------------------------------------------------------------
 	ZeroDivisionError                         Traceback (most recent call last)
 
@@ -781,7 +781,7 @@ instance:
 
 .. note::
 
-    The above example appears to be broken right now because of a change in 
+    The above example appears to be broken right now because of a change in
     how we are using Twisted.
 
 All of this same error handling magic even works in non-blocking mode:
@@ -799,10 +799,10 @@ All of this same error handling magic even works in non-blocking mode:
 	/ipython1-client-r3021/docs/examples/<ipython console> in <module>()
 
 	/ipython1-client-r3021/ipython1/kernel/multiengineclient.pyc in _get_r(self)
-	    170 
+	    170
 	    171     def _get_r(self):
 	--> 172         return self.get_result(block=True)
-	    173 
+	    173
 	    174     r = property(_get_r)
 
 	/ipython1-client-r3021/ipython1/kernel/multiengineclient.pyc in get_result(self, default, block)
@@ -813,10 +813,10 @@ All of this same error handling magic even works in non-blocking mode:
 	    135             return default
 
 	/ipython1-client-r3021/ipython1/kernel/multiengineclient.pyc in get_pending_deferred(self, deferredID, block)
-	    385 
+	    385
 	    386     def get_pending_deferred(self, deferredID, block):
 	--> 387         return blockingCallFromThread(self.smultiengine.get_pending_deferred, deferredID, block)
-	    388 
+	    388
 	    389     def barrier(self, pendingResults):
 
 	/ipython1-client-r3021/ipython1/kernel/twistedutil.pyc in blockingCallFromThread(f, *a, **kw)
@@ -824,7 +824,7 @@ All of this same error handling magic even works in non-blocking mode:
 	     73         except Exception, e:
 	---> 74             raise e
 	     75     return result
-	     76 
+	     76
 
 	CompositeError: one or more exceptions from call to method: execute
 	[0:execute]: ZeroDivisionError: integer division or modulo by zero

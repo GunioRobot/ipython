@@ -217,7 +217,7 @@ these; for reference here is how to use ``# random``::
 	return 'ranfunc'
 
 and an example of ``# all-random``::
-	
+
     def random_all():
 	"""A function where we ignore the output of ALL examples.
 
@@ -259,7 +259,7 @@ decorator to leave the docstring intact where it works as a test::
   # The docstring for full_path doctests differently on win32 (different path
   # separator) so just skip the doctest there, and use a null decorator
   # elsewhere:
-  
+
   doctest_deco = dec.skip_doctest if sys.platform == 'win32' else dec.null_deco
 
   @doctest_deco
@@ -282,7 +282,7 @@ for completeness sake, your code should look like this (a simple case)::
 	CPU times: user 0.00 s, sys: 0.00 s, total: 0.00 s
 	Wall time: 0.00 s
 	"""
-	
+
 This function is only analyzed for its docstring but it is not considered a
 separate test, which is why its body should be empty.
 
@@ -315,22 +315,22 @@ problem at hand, since both work)::
       yield is_smaller(3, 4)
       x, y = 1, 2
       yield is_smaller(x, y)
-      
+
 
 Writing tests for Twisted-using code
 ------------------------------------
-      
+
 Tests of Twisted [Twisted]_ using code should be written by subclassing the
 ``TestCase`` class that comes with ``twisted.trial.unittest``. Furthermore, all
 :class:`Deferred` instances that are created in the test must be properly
 chained and the final one *must* be the return value of the test method.
 
 .. note::
-  
+
   The best place to see how to use the testing tools, are the tests for these
   tools themselves, which live in :mod:`IPython.testing.tests`.
-  
-    
+
+
 Design requirements
 ===================
 

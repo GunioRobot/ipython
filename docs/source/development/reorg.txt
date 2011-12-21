@@ -11,7 +11,7 @@ top-level IPython subpackages.
 Subpackage descriptions
 =======================
 
-* :mod:`IPython.config`.  This package contains the configuration system of 
+* :mod:`IPython.config`.  This package contains the configuration system of
   IPython, as well as default configuration files for the different IPython
   applications.
 
@@ -59,7 +59,7 @@ Subpackage descriptions
   action.
 
 * :mod:`IPython.scripts`.  This package contains a variety of top-level
-  command line scripts.  Eventually, these should be moved to the 
+  command line scripts.  Eventually, these should be moved to the
   :file:`scripts` subdirectory of the appropriate IPython subpackage.
 
 * :mod:`IPython.utils`. This sub-package will contain anything that might

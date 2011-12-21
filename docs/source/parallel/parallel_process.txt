@@ -12,7 +12,7 @@ Because of this, there are many different possibilities.
 Broadly speaking, there are two ways of going about starting a controller and engines:
 
 * In an automated manner using the :command:`ipcluster` command.
-* In a more manual way using the :command:`ipcontroller` and 
+* In a more manual way using the :command:`ipcontroller` and
   :command:`ipengine` commands.
 
 This document describes both of these methods. We recommend that new users
@@ -32,10 +32,10 @@ hosts ``host1``-``hostn``. The following steps are then required:
 
 1. Start the controller on ``host0`` by running :command:`ipcontroller` on
    ``host0``.
-2. Move the FURL file (:file:`ipcontroller-engine.furl`) created by the 
+2. Move the FURL file (:file:`ipcontroller-engine.furl`) created by the
    controller from ``host0`` to hosts ``host1``-``hostn``.
-3. Start the engines on hosts ``host1``-``hostn`` by running 
-   :command:`ipengine`.  This command has to be told where the FURL file 
+3. Start the engines on hosts ``host1``-``hostn`` by running
+   :command:`ipengine`.  This command has to be told where the FURL file
    (:file:`ipcontroller-engine.furl`) is located.
 
 At this point, the controller and engines will be connected. By default, the
@@ -59,10 +59,10 @@ controller and engines in the following situations:
 
 1. When the controller and engines are all run on localhost. This is useful
    for testing or running on a multicore computer.
-2. When engines are started using the :command:`mpirun` command that comes 
+2. When engines are started using the :command:`mpirun` command that comes
    with most MPI [MPI]_ implementations
 3. When engines are started using the PBS [PBS]_ batch system.
-4. When the controller is started on localhost and the engines are started on 
+4. When the controller is started on localhost and the engines are started on
    remote nodes using :command:`ssh`.
 
 .. note::
@@ -77,7 +77,7 @@ controller and engines in the following situations:
     :file:`~/.ipython/security` directory live on a shared filesystem that is
     seen by both the controller and engines. If you don't have a shared file
     system you will need to use :command:`ipcontroller` and
-    :command:`ipengine` directly.  This constraint can be relaxed if you are 
+    :command:`ipengine` directly.  This constraint can be relaxed if you are
     using the :command:`ssh` method to start the cluster.
 
 Underneath the hood, :command:`ipcluster` just uses :command:`ipcontroller`
@@ -105,9 +105,9 @@ The mpiexec/mpirun mode is useful if you:
 
 .. note::
 
-    The preferred command to use is :command:`mpiexec`.  However, we also 
+    The preferred command to use is :command:`mpiexec`.  However, we also
     support :command:`mpirun` for backwards compatibility.  The underlying
-    logic used is exactly the same, the only difference being the name of the 
+    logic used is exactly the same, the only difference being the name of the
     command line program that is called.
 
 If these are satisfied, you can start an IPython cluster using::
@@ -163,22 +163,22 @@ used to start the engines. Here is a sample PBS script template:
 
 There are a few important points about this template:
 
-1. This template will be rendered at runtime using IPython's :mod:`Itpl` 
+1. This template will be rendered at runtime using IPython's :mod:`Itpl`
    template engine.
 
 2. Instead of putting in the actual number of engines, use the notation
    ``${n}`` to indicate the number of engines to be started. You can also uses
-   expressions like ``${n/4}`` in the template to indicate the number of 
+   expressions like ``${n/4}`` in the template to indicate the number of
    nodes.
 
-3. Because ``$`` is a special character used by the template engine, you must  
-   escape any ``$`` by using ``$$``.  This is important when referring to 
+3. Because ``$`` is a special character used by the template engine, you must
+   escape any ``$`` by using ``$$``.  This is important when referring to
    environment variables in the template.
 
-4. Any options to :command:`ipengine` should be given in the batch script 
+4. Any options to :command:`ipengine` should be given in the batch script
    template.
 
-5. Depending on the configuration of you system, you may have to set 
+5. Depending on the configuration of you system, you may have to set
    environment variables in the script template.
 
 Once you have created such a script, save it with a name like
@@ -203,7 +203,7 @@ To use this mode you need a python file describing the cluster, here is an
 example of such a "clusterfile":
 
 .. sourcecode:: python
-    
+
     send_furl = True
     engines = { 'host1.example.com' : 2,
                 'host2.example.com' : 5,
@@ -223,7 +223,7 @@ the cluster definition. Once you have your cluster file and you can
 :command:`ssh` into the remote hosts with out an password you are ready to
 start your cluster like so:
 
-.. sourcecode:: bash 
+.. sourcecode:: bash
 
    $ ipcluster ssh --clusterfile /path/to/my/clusterfile.py
 
@@ -231,7 +231,7 @@ start your cluster like so:
 Two helper shell scripts are used to start and stop :command:`ipengine` on
 remote hosts:
 
-* sshx.sh 
+* sshx.sh
 * engine_killer.sh
 
 Defaults for both of these are contained in the source code for
@@ -282,7 +282,7 @@ local machine, do the following.
 First start the controller::
 
 	$ ipcontroller
-	
+
 Next, start however many instances of the engine you want using (repeatedly)
 the command::
 
@@ -292,10 +292,10 @@ The engines should start and automatically connect to the controller using the
 FURL files in :file:`~./ipython/security`. You are now ready to use the
 controller and engines from IPython.
 
-.. warning:: 
-	
+.. warning::
+
 	The order of the above operations is very important.  You *must*
- 	start the controller before the engines, since the engines connect 
+ 	start the controller before the engines, since the engines connect
 	to the controller as they get started.
 
 .. note::
@@ -330,8 +330,8 @@ The ``--furl-file`` flag works like this::
     $ ipengine --furl-file=/path/to/my/ipcontroller-engine.furl
 
 .. note::
-    
-    If the controller's and engine's hosts all have a shared file system  
+
+    If the controller's and engine's hosts all have a shared file system
     (:file:`~./ipython/security` is the same on all of them), then things
     will just work!
 

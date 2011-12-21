@@ -19,7 +19,7 @@ def generateWignerData():
     s = numpy.linspace(0.0,4.0,400)
     rhos = wignerDistribution(s)
     return s, rhos
-    
+
 
 def serialDiffs(num, N):
     diffs = ensembleDiffs(num, N)
@@ -48,7 +48,7 @@ if __name__ == '__main__':
     # Simulation parameters
     nmats = 100
     matsize = 30
-    
+
     %timeit -n1 -r1 serialDiffs(nmats,matsize)
     %timeit -n1 -r1 parallelDiffs(rc, nmats, matsize)
 

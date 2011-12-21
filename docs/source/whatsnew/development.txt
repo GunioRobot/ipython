@@ -47,7 +47,7 @@ New features
 
 * The embedded shell has been refactored into a truly standalone subclass of
   :class:`InteractiveShell` called :class:`InteractiveShellEmbed`.  All
-  embedding logic has been taken out of the base class and put into the 
+  embedding logic has been taken out of the base class and put into the
   embedded subclass.
 
 * I have created methods of :class:`~IPython.core.iplib.InteractiveShell` to
@@ -110,7 +110,7 @@ New features
   resolution is done at a single point, when the parent
   :class:`~IPython.utils.traitlets.HasTraitlets` is instantiated.
 
-* :mod:`IPython.utils.ipstruct` has been refactored to be a subclass of 
+* :mod:`IPython.utils.ipstruct` has been refactored to be a subclass of
   dict.  It also now has full docstrings and doctests.
 * Created a Trait's like implementation in :mod:`IPython.utils.traitlets`.
   This is a pure Python, lightweight version of a library that is similar to
@@ -146,7 +146,7 @@ Bug fixes
 * The ``psum`` example in the MPI documentation has been updated to mpi4py
   version 1.1.0.  Thanks to J. Thomas for this fix.
 
-* The top-level, zero-install :file:`ipython.py` script has been updated to 
+* The top-level, zero-install :file:`ipython.py` script has been updated to
   the new application launching API.
 
 * Keyboard interrupts now work with GUI support enabled across all platforms
@@ -167,7 +167,7 @@ Backwards incompatible changes
 * :meth:`Struct.__init__` no longer takes `None` as its first argument.  It
   must be a :class:`dict` or :class:`Struct`.
 
-* :meth:`~IPython.core.iplib.InteractiveShell.ipmagic` has been renamed 
+* :meth:`~IPython.core.iplib.InteractiveShell.ipmagic` has been renamed
   :meth:`~IPython.core.iplib.InteractiveShell.magic.`
 
 * The functions :func:`ipmagic` and :func:`ipalias` have been removed from
@@ -202,7 +202,7 @@ Backwards incompatible changes
   support for the new :mod:`IPython.lib.inputhook` approach.  The new stuff
   does work with matplotlib, but you have to set everything up by hand.
 
-* New top-level sub-packages have been created: :mod:`IPython.core`, 
+* New top-level sub-packages have been created: :mod:`IPython.core`,
   :mod:`IPython.lib`, :mod:`IPython.utils`, :mod:`IPython.deathrow`,
   :mod:`IPython.quarantine`.  All existing top-level modules have been
   moved to appropriate sub-packages.  All internal import statements
@@ -210,7 +210,7 @@ Backwards incompatible changes
   and friends) have been updated.  See :ref:`this section <module_reorg>` of the
   documentation for descriptions of these new sub-packages.
 
-* Compatability modules have been created for :mod:`IPython.Shell`, 
+* Compatability modules have been created for :mod:`IPython.Shell`,
   :mod:`IPython.ipapi` and :mod:`IPython.iplib` that display warnings
   and then load the actual implementation from :mod:`IPython.core`.
 

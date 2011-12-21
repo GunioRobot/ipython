@@ -51,7 +51,7 @@ The following terminals seem to handle the color sequences fine:
       this issue can be resolved for all users.
 
 .. _pyreadline: https://code.launchpad.net/pyreadline
-      
+
 These have shown problems:
 
     * Windows command prompt in WinXP/2k logged into a Linux machine via
@@ -125,7 +125,7 @@ For the csh or tcsh shells, add to your ~/.cshrc file the lines::
 
     setenv PAGER less
     setenv LESS -r
-    
+
 There is similar syntax for other Unix shells, look at your system
 documentation for details.
 
@@ -143,38 +143,38 @@ additional ones. We list them below::
 
     \#
         the prompt/history count number. This escape is automatically
-        wrapped in the coloring codes for the currently active color scheme. 
+        wrapped in the coloring codes for the currently active color scheme.
     \N
         the 'naked' prompt/history count number: this is just the number
         itself, without any coloring applied to it. This lets you produce
-        numbered prompts with your own colors. 
+        numbered prompts with your own colors.
     \D
         the prompt/history count, with the actual digits replaced by dots.
-        Used mainly in continuation prompts (prompt_in2) 
+        Used mainly in continuation prompts (prompt_in2)
     \w
-        the current working directory 
+        the current working directory
     \W
-        the basename of current working directory 
+        the basename of current working directory
     \Xn
         where $n=0\ldots5.$ The current working directory, with $HOME
-        replaced by ~, and filtered out to contain only $n$ path elements 
+        replaced by ~, and filtered out to contain only $n$ path elements
     \Yn
         Similar to \Xn, but with the $n+1$ element included if it is ~ (this
-        is similar to the behavior of the %cn escapes in tcsh) 
+        is similar to the behavior of the %cn escapes in tcsh)
     \u
-        the username of the current user 
+        the username of the current user
     \$
-        if the effective UID is 0, a #, otherwise a $ 
+        if the effective UID is 0, a #, otherwise a $
     \h
-        the hostname up to the first '.' 
+        the hostname up to the first '.'
     \H
-        the hostname 
+        the hostname
     \n
-        a newline 
+        a newline
     \r
-        a carriage return 
+        a carriage return
     \v
-        IPython version string 
+        IPython version string
 
 In addition to these, ANSI color escapes can be insterted into the
 prompts, as \C_ColorName. The list of valid color names is: Black, Blue,
@@ -188,7 +188,7 @@ of PEP 215, but basically you can use $x.y to expand the value of x.y,
 and for more complicated expressions you can use braces: ${foo()+x} will
 call function foo and add to it the value of x, before putting the
 result into your prompt. For example, using
-prompt_in1 '${commands.getoutput("uptime")}\nIn [\#]: ' 
+prompt_in1 '${commands.getoutput("uptime")}\nIn [\#]: '
 will print the result of the uptime command on each prompt (assuming the
 commands module has been imported in your ipythonrc file).
 
@@ -198,33 +198,33 @@ commands module has been imported in your ipythonrc file).
 The following options in an ipythonrc file will give you IPython's
 default prompts::
 
-    prompt_in1 'In [\#]:' 
-    prompt_in2 '   .\D.:' 
+    prompt_in1 'In [\#]:'
+    prompt_in2 '   .\D.:'
     prompt_out 'Out[\#]:'
 
 which look like this::
 
-    In [1]: 1+2 
+    In [1]: 1+2
     Out[1]: 3
 
-    In [2]: for i in (1,2,3): 
-       ...:    print i, 
-       ...: 
+    In [2]: for i in (1,2,3):
+       ...:    print i,
+       ...:
     1 2 3
 
 These will give you a very colorful prompt with path information::
 
-    #prompt_in1 '\C_Red\u\C_Blue[\C_Cyan\Y1\C_Blue]\C_LightGreen\#>' 
-    prompt_in2 ' ..\D>' 
+    #prompt_in1 '\C_Red\u\C_Blue[\C_Cyan\Y1\C_Blue]\C_LightGreen\#>'
+    prompt_in2 ' ..\D>'
     prompt_out '<\#>'
 
 which look like this::
 
-    fperez[~/ipython]1> 1+2 
-                    <1> 3 
-    fperez[~/ipython]2> for i in (1,2,3): 
-                   ...>     print i, 
-                   ...> 
+    fperez[~/ipython]1> 1+2
+                    <1> 3
+    fperez[~/ipython]2> for i in (1,2,3):
+                   ...>     print i,
+                   ...>
     1 2 3
 
 

@@ -13,10 +13,10 @@ Overview
 The Qt frontend has hand-coded emacs-style bindings for text navigation. This is not yet
 configurable.
 
-.. seealso:: 
+.. seealso::
 
     `The original IPython-Qt project description. <ipython_qt>`_
-    
+
 ``%loadpy``
 ===========
 
@@ -28,18 +28,18 @@ examples from documentation, such as matplotlib.
 
 .. sourcecode:: ipython
 
-    In [6]: %loadpy 
+    In [6]: %loadpy
     http://matplotlib.sourceforge.net/plot_directive/mpl_examples/mplot3d/contour3d_demo.py
 
     In [7]: from mpl_toolkits.mplot3d import axes3d
        ...: import matplotlib.pyplot as plt
-       ...: 
+       ...:
        ...: fig = plt.figure()
        ...: ax = fig.add_subplot(111, projection='3d')
        ...: X, Y, Z = axes3d.get_test_data(0.05)
        ...: cset = ax.contour(X, Y, Z)
        ...: ax.clabel(cset, fontsize=9, inline=1)
-       ...: 
+       ...:
        ...: plt.show()
 
 Pylab
@@ -87,7 +87,7 @@ The widget also exposes the ability to print directly, via the default print sho
 context menu.
 
 
-.. Note:: 
+.. Note::
 
     Saving is only available to richtext Qt widgets, so make sure you start ipqt with the
     ``--rich`` flag, or with ``--pylab``, which always uses a richtext widget.
@@ -122,7 +122,7 @@ default:
 
 .. image:: figs/colors.dark.png
     :width: 627px
-    
+
 .. Note::
 
     Calling ``ipython-qtconsole -h`` will show all the style names that pygments can find

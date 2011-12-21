@@ -18,10 +18,10 @@ IPython directory to start using it.
 Most configuration attributes that this file accepts are associated with
 classes that are subclasses of :class:`~IPython.core.component.Component`.
 
-A few configuration attributes are not associated with a particular 
+A few configuration attributes are not associated with a particular
 :class:`~IPython.core.component.Component` subclass.  These are application
-wide configuration attributes and are stored in the ``Global`` 
-sub-configuration section.  We begin with a description of these 
+wide configuration attributes and are stored in the ``Global``
+sub-configuration section.  We begin with a description of these
 attributes.
 
 Global configuration

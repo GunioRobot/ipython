@@ -1,13 +1,13 @@
 2008-06-09  Ville Vainio <vivainio@gmail.com>
 
 	* Extensions/ipy_autoreload.py: Apply Pauli Virtanen's patch
-	to autoreloading that also replaces the changed code objects 
+	to autoreloading that also replaces the changed code objects
 	with new versions
 
 	* pspersistence.py: report UsageError on %store -w w/o arg,
 	and other usage pattern errors. Bug report by Johann Cohen-Tanugi.
-	
-	
+
+
 2008-06-03  Ville Vainio <vivainio@gmail.com>
 
 	* ipython.rst, ipython.1: remove -twisted from man page,
@@ -40,7 +40,7 @@
 	win32.  Since we need a quick emergency 0.8.4 release, it is now
 	disabled completely.  Users who want to run it can use the
 	following command (it's easy to put it in an alias or script):
-	
+
 	python -c"from IPython import twshell;twshell.IPShellTwisted().mainloop()"
 
 2008-05-30  Ville Vainio <vivainio@gmail.com>
@@ -50,7 +50,7 @@
 
 	* ipy_profile_sh.py: disable ipy_signals. Now, ipython
 	is verified to work with python 2.3
-	
+
 	* Release.py: update version to 0.8.4 for quick point fix
 
 2008-05-28  *** Released version 0.8.3
@@ -83,8 +83,8 @@
 
 2008-05-14  Ville Vainio <vivainio@gmail.com>
 
-	* Extensions/ipy_greedycompleter.py: 
-	New extension that enables a bit more "relaxed" tab 
+	* Extensions/ipy_greedycompleter.py:
+	New extension that enables a bit more "relaxed" tab
 	completer that evaluates code without safety checks
 	(i.e. there can be side effects like function calls)
 
@@ -94,7 +94,7 @@
 	(search docstrings for words) by Pauli Virtanen. Close #245.
 
 	* Extension/ipy_jot.py: %jot and %read magics, analogous
-	to %store but you can specify some notes. Not read 
+	to %store but you can specify some notes. Not read
 	in automatically on startup, you need %read.
 	Contributed by Yichun Wei.
 
@@ -112,7 +112,7 @@
 
 2008-04-09  Ville Vainio <vivainio@gmail.com>
 
-	* deep_reload.py: do not crash on from __future__ import 
+	* deep_reload.py: do not crash on from __future__ import
 	absolute_import. Close #244.
 
 2008-04-02  Ville Vainio <vivainio@gmail.com>
@@ -138,7 +138,7 @@
 	ipython.rst has up to date documentation on matters that were not
 	documented at all, and it also removes various
 	misdocumented/deprecated features.
-	
+
 2008-03-22  Ville Vainio <vivainio@gmail.com>
 
 	* Shell.py: Merge mtexp branch:
@@ -182,11 +182,11 @@
 	test_embed.py. r51.
 
 	test_embed.py is also a good and simple demo of embedding IPython.
-	
+
 
 2008-03-10  Ville Vainio <vivainio@gmail.com>
 
-	* tool/update_revnum.py: Change to bzr revisioning scheme in 
+	* tool/update_revnum.py: Change to bzr revisioning scheme in
 	revision numbers.
 
 	* Shell.py: Threading improvements:
@@ -204,14 +204,14 @@
 
 	* ipy_profile_sh.py: You can now use $LA or LA() to refer to last
 	argument of previous command in sh profile. Similar to bash '!$'.
-	LA(3) or $LA(3) stands for last argument of input history command 
+	LA(3) or $LA(3) stands for last argument of input history command
 	3.
 
 	* Shell.py: -pylab names don't clutter %whos listing.
 
 2008-03-07  Ville Vainio <vivainio@gmail.com>
 
-	* ipy_autoreload.py: new extension (by Pauli Virtanen) for 
+	* ipy_autoreload.py: new extension (by Pauli Virtanen) for
 	autoreloading modules; try %autoreload and %aimport. Close #154.
 	Uses the new pre_runcode_hook.
 
@@ -229,8 +229,8 @@
 	close #233.
 
 	* completer.py: do not treat [](){} as protectable chars anymore
-	
-	* magic.py, test_cpaste.py: Allow different prefix for pasting 
+
+	* magic.py, test_cpaste.py: Allow different prefix for pasting
 	from email
 
 2008-02-17  Ville Vainio <vivainio@gmail.com>
@@ -239,20 +239,20 @@
 
 2008-02-14  Ville Vainio <vivainio@gmail.com>
 
-	* ipapi.py: _ip.runlines() is now much more liberal about 
+	* ipapi.py: _ip.runlines() is now much more liberal about
 	indentation - it cleans up the scripts it gets
-	
+
 2008-02-14  Ville Vainio <vivainio@gmail.com>
 
 	* Extensions/ipy_leo.py: created 'ILeo' IPython-Leo bridge.
 	Changes to it (later on) are too numerous to list in ChangeLog
 	until it stabilizes
-	
+
 2008-02-07  Darren Dale <darren.dale@cornell.edu>
 
 	* IPython/Shell.py: Call QtCore.pyqtRemoveInputHook() when creating
-	an IPShellQt4. PyQt4-4.2.1 and later uses PyOS_InputHook to improve 
-	interaction in the interpreter (like Tkinter does), but it seems to 
+	an IPShellQt4. PyQt4-4.2.1 and later uses PyOS_InputHook to improve
+	interaction in the interpreter (like Tkinter does), but it seems to
 	partially interfere with the IPython implementation and exec_()
 	still seems to block. So we disable the PyQt implementation and
 	stick with the IPython one for now.
@@ -261,7 +261,7 @@
 
 	* ipipe.py: A new ipipe table has been added: ialias produces all
 	entries from IPython's alias table.
-	
+
 2008-02-01  Fernando Perez  <Fernando.Perez@colorado.edu>
 
 	* IPython/Shell.py (MTInteractiveShell.runcode): Improve handling
@@ -286,7 +286,7 @@
 
 	* ipipe.py: Register ipipe's displayhooks via the generic function
 	generics.result_display() instead of using ipapi.set_hook().
-	
+
 2008-01-19  Walter Doerwald  <walter@livinglogic.de>
 
 	* ibrowse.py, igrid.py, ipipe.py:
@@ -296,7 +296,7 @@
 
 	* ipipe.py: Importing astyle.py is done as late as possible to
 	avoid problems with circular imports.
-	
+
 2008-01-19 Ville Vainio  <vivainio@gmail.com>
 
 	* hooks.py, iplib.py: Added 'shell_hook' to customize how
@@ -314,16 +314,16 @@
 
 2008-01-11 Ville Vainio  <vivainio@gmail.com>
 
-	* iplib.py, ipmaker.py: new rc option - autoexec. It's a list 
+	* iplib.py, ipmaker.py: new rc option - autoexec. It's a list
 	of ipython commands to be run when IPython has started up
 	(just before running the scripts and -c arg on command line).
-	
-	* ipy_user_conf.py: Added an example on how to change term 
+
+	* ipy_user_conf.py: Added an example on how to change term
 	colors in config file (through using autoexec).
 
 	* completer.py, test_completer.py: Ability to specify custom
 	get_endidx to replace readline.get_endidx. For emacs users.
-	
+
 2008-01-10 Ville Vainio  <vivainio@gmail.com>
 
 	* Prompts.py (set_p_str): do not crash on illegal prompt strings
@@ -336,31 +336,31 @@
 
 	* completer.py: custom completer matching is now case sensitive
 	(#207).
-	
+
 	* ultraTB.py, iplib.py: Add some KeyboardInterrupt catching in
 	an attempt to prevent occasional crashes.
-	
+
 	* CrashHandler.py: Crash log dump now asks user to press enter
 	before exiting.
-	
+
 	* Store _ip in user_ns instead of __builtin__, enabling safer
 	coexistence of multiple IPython instances in the same python
 	interpreter (#197).
-	
+
 	* Debugger.py, ipmaker.py: Need to add '-pydb' command line
 	switch to enable pydb in post-mortem debugging and %run -d.
 
 2007-12-28  Ville Vainio  <vivainio@gmail.com>
 
-	* ipy_server.py: TCP socket server for "remote control" of an IPython 
+	* ipy_server.py: TCP socket server for "remote control" of an IPython
 	instance.
-	
+
 	* Debugger.py: Change to PSF license
-	
+
 	* simplegeneric.py: Add license & author notes.
-	
-	* ipy_fsops.py: Added PathObj and FileObj, an object-oriented way 
-	to navigate file system with a custom completer. Run 
+
+	* ipy_fsops.py: Added PathObj and FileObj, an object-oriented way
+	to navigate file system with a custom completer. Run
 	ipy_fsops.test_pathobj() to play with it.
 
 2007-12-28  Fernando Perez  <Fernando.Perez@colorado.edu>
@@ -371,12 +371,12 @@
 
 2007-12-27  Ville Vainio  <vivainio@gmail.com>
 
-	* ipy_completers.py: Applied arno's patch to get proper list of 
+	* ipy_completers.py: Applied arno's patch to get proper list of
 	packages in import completer. Closes #196.
 
 2007-12-20  Ville Vainio  <vivainio@gmail.com>
 
-	* completer.py, generics.py(complete_object): Allow 
+	* completer.py, generics.py(complete_object): Allow
 	custom complers based on python objects via simplegeneric.
 	See generics.py / my_demo_complete_object
 
@@ -394,9 +394,9 @@
 
 2007-12-12  Ville Vainio  <vivainio@gmail.com>
 
-	* genutils.py (abbrev_cwd): Terminal title now shows 2 levels of 
+	* genutils.py (abbrev_cwd): Terminal title now shows 2 levels of
 	current directory.
-	
+
 2007-12-12  Fernando Perez  <Fernando.Perez@colorado.edu>
 
 	* IPython/Shell.py (_select_shell): add support for controlling
@@ -411,8 +411,8 @@
 
 2007-12-07  Ville Vainio  <vivainio@gmail.com>
 
-	* iplib.py, ipy_profile_sh.py: Do not escape # on command lines 
-	anymore (to \#) - even if it is a comment char that is implicitly 
+	* iplib.py, ipy_profile_sh.py: Do not escape # on command lines
+	anymore (to \#) - even if it is a comment char that is implicitly
 	escaped in some unix shells in interactive mode, it is ok to leave
 	it in IPython as such.
 
@@ -422,7 +422,7 @@
 	* IPython/ultraTB.py (findsource): Improve the monkeypatch to
 	inspect.findsource(). It can now find source lines inside zipped
 	packages.
-	
+
 	* IPython/ultraTB.py: When constructing tracebacks, try to use __file__
 	in the frame's namespace before trusting the filename in the code object
 	which created the frame.
@@ -515,7 +515,7 @@
 2007-09-09  Fernando Perez  <Fernando.Perez@colorado.edu>
 
 	* IPython/FakeModule.py (FakeModule.__init__): further fixes for
-	doctest support.  
+	doctest support.
 
 	* IPython/iplib.py (safe_execfile): minor docstring improvements.
 
@@ -535,13 +535,13 @@
         aliases.
 
 	* genutils.py: SList.grep() implemented.
-        
+
 	* ipy_editors.py, UserConfig/ipy_user_conf.py: Add some editors
 	for easy "out of the box" setup of several common editors, so that
 	e.g. '%edit os.path.isfile' will jump to the correct line
 	automatically. Contributions for command lines of your favourite
 	editors welcome.
-        
+
 2007-09-07  Fernando Perez  <Fernando.Perez@colorado.edu>
 
 	* IPython/OInspect.py (Inspector.pinfo): fixed bug that was
@@ -577,7 +577,7 @@
 2007-09-06  Ville Vainio  <vivainio@gmail.com>
 
 	* ipy_rehashdir.py, ipy_workdir.py, ipy_fsops.py, iplib.py:
-	Callable aliases now pass the _ip as first arg. This breaks 
+	Callable aliases now pass the _ip as first arg. This breaks
 	compatibility with earlier 0.8.2.svn series! (though they should
 	not have been in use yet outside these few extensions)
 
@@ -585,7 +585,7 @@
 
 	* external/mglob.py: expand('dirname') => ['dirname'], instead
 	of ['dirname/foo','dirname/bar', ...].
-        
+
 	* Extensions/ipy_fsops.py: added, has usefull shell utils for plain
 	win32 installations: icp, imv, imkdir, igrep, irm, collect (collect
 	is useful for others as well).
@@ -599,14 +599,14 @@
 
 	* OInspect.py, ipy_which.py: improve %which and obj? for callable
 	aliases
-        
+
 2007-09-04  Ville Vainio  <vivainio@gmail.com>
 
 	* ipy_profile_zope.py: add zope profile, by Stefan Eletzhofer.
 	Relicensed under BSD with the authors approval.
-        
+
 	* ipmaker.py, usage.py: Remove %magic from default banner, improve
-	%quickref        
+	%quickref
 
 2007-09-03  Ville Vainio  <vivainio@gmail.com>
 
@@ -624,32 +624,32 @@
 2007-08-26  Ville Vainio  <vivainio@gmail.com>
 
 	* ipmaker.py: Command line args have the highest priority again
-	
+
 	* iplib.py, ipmaker.py: -i command line argument now behaves as in
 	normal python, i.e. leaves the IPython session running after -c
 	command or running a batch file from command line.
-    
+
 2007-08-22  Ville Vainio  <vivainio@gmail.com>
 
 	* iplib.py: no extra empty (last) line in raw hist w/ multiline
 	statements
-	
+
 	* logger.py: Fix bug where blank lines in history were not
 	added until AFTER adding the current line; translated and raw
 	history should finally be in sync with prompt now.
-	
+
 	* ipy_completers.py: quick_completer now makes it easy to create
 	trivial custom completers
-	
+
 	* clearcmd.py: shadow history compression & erasing, fixed input hist
 	clearing.
-	
+
 	* envpersist.py, history.py: %env (sh profile only), %hist completers
-	
+
 	* genutils.py, Prompts.py, Magic.py: win32 - prompt (with \yDEPTH) and
 	term title now include the drive letter, and always use / instead of
 	os.sep (as per recommended approach for win32 ipython in general).
-	
+
 	* ipykit.py, ipy_kitcfg.py: special launcher for ipykit. Allows running
 	plain python scripts from ipykit command line by running
 	"py myscript.py", even w/o installed python.
@@ -658,7 +658,7 @@
 
 	* ipmaker.py: finding ipythonrc-PROF now skips ipy_profile_PROF.
 	(for backwards compatibility)
-	
+
 	* history.py: switch back to %hist -t from %hist -r as default.
 	At least until raw history is fixed for good.
 
@@ -667,7 +667,7 @@
 	* ipapi.py, iplib.py: DebugTools accessible via _ip.dbg, to catch &
 	locate alias redeclarations etc. Also, avoid handling
 	_ip.IP.alias_table directly, prefer using _ip.defalias.
-	
+
 
 2007-08-15  Ville Vainio  <vivainio@gmail.com>
 
@@ -689,11 +689,11 @@
 
 	* prefilter.py: Take more care to special-case !, so that
         !c:/bin/foo.exe works.
-        
+
         * setup.py: if we are building eggs, strip all docs and
         examples (it doesn't make sense to bytecompile examples,
         and docs would be in an awkward place anyway).
-        
+
         * Ryan Krauss' patch fixes start menu shortcuts when IPython
         is installed into a directory that has spaces in the name.
 
@@ -841,14 +841,14 @@
 	* shadowns.py, iplib.py, ipapi.py, OInspect.py:
         Implement "shadow" namespace, and callable aliases that reside there.
         Use them by:
-        
+
         _ip.defalias('foo',myfunc) # creates _sh.foo that points to myfunc
-        
+
         foo hello world
          (gets translated to:)
         _sh.foo(r"""hello world""")
 
-        In practice, this kind of alias can take the role of a magic function        
+        In practice, this kind of alias can take the role of a magic function
 
         * New generic inspect_object, called on obj? and obj??
 
@@ -863,9 +863,9 @@
         autocall rewrite indication, becausesometimes unicode fails to print
         properly (and you get ' - - - '). Use plain uncoloured ---> for
         unicode.
-        
+
         * shadow history. Usable through "%hist -g <pat>" and "%rep 0123".
-        
+
         . pickleshare 'hash' commands (hget, hset, hcompress,
         hdict) for efficient shadow history storage.
 
@@ -877,11 +877,11 @@
 
 2007-06-11  Ville Vainio  <vivainio@gmail.com>
 
-	* pspersistence.py, Magic.py, iplib.py: directory history now saved 
+	* pspersistence.py, Magic.py, iplib.py: directory history now saved
 	to db
-    
+
 	* iplib.py: "ipython -c <cmd>" now passes the command through prefilter.
-	Also, it exits IPython immediately after evaluating the command (just like 
+	Also, it exits IPython immediately after evaluating the command (just like
 	std python)
 
 2007-06-05  Walter Doerwald  <walter@livinglogic.de>
@@ -909,32 +909,32 @@
 	active refresh interval. (Patch by Nik Tautenhahn)
 
 2007-05-29  Jorgen Stenarson  <jorgen.stenarson@bostream.nu>
-	
+
 	* fixing set_term_title to use ctypes as default
 
-	* fixing set_term_title fallback to work when curent dir 
+	* fixing set_term_title fallback to work when curent dir
 	  is on a windows network share
 
 2007-05-28  Ville Vainio  <vivainio@gmail.com>
 
 	* %cpaste: strip + with > from left (diffs).
-        
+
         * iplib.py: Fix crash when readline not installed
 
 2007-05-26  Ville Vainio  <vivainio@gmail.com>
 
 	* generics.py: introduce easy to extend result_display generic
         function (using simplegeneric.py).
-        
+
         * Fixed the append functionality of %set.
 
 2007-05-25  Ville Vainio  <vivainio@gmail.com>
 
 	* New magic: %rep (fetch / run old commands from history)
-        
+
         * New extension: mglob (%mglob magic), for powerful glob / find /filter
         like functionality
-        
+
         % maghistory.py: %hist -g PATTERM greps the history for pattern
 
 2007-05-24  Walter Doerwald  <walter@livinglogic.de>
@@ -950,45 +950,45 @@
 2007-05-24  Ville Vainio  <vivainio@gmail.com>
 
 	* Grand magic cleansing (changeset [2380]):
-        
+
         * Introduce ipy_legacy.py where the following magics were
         moved:
-        
+
         pdef pdoc psource pfile rehash dhist Quit p r automagic autocall
-        
+
         If you need them, either use default profile or "import ipy_legacy"
         in your ipy_user_conf.py
-        
+
         * Move sh and scipy profile to Extensions from UserConfig. this implies
         you should not edit them, but you don't need to run %upgrade when
         upgrading IPython anymore.
-        
+
         * %hist/%history now operates in "raw" mode by default. To get the old
         behaviour, run '%hist -n' (native mode).
-        
+
         * split ipy_stock_completers.py to ipy_stock_completers.py and
         ipy_app_completers.py. Stock completers (%cd, import, %run) are now
         installed as default.
-        
+
         * sh profile now installs ipy_signals.py, for (hopefully) better ctrl+c
         handling.
-        
+
         * iplib.py, ipapi.py: _ip.set_next_input(s) sets the next ("default")
         input if readline is available.
-	
+
 2007-05-23  Ville Vainio  <vivainio@gmail.com>
 
 	* macro.py: %store uses __getstate__ properly
-	
+
 	* exesetup.py: added new setup script for creating
 	standalone IPython executables with py2exe (i.e.
 	no python installation required).
-	
+
 	* Removed ipythonrc-scipy, ipy_profile_scipy.py takes
 	its place.
-        
+
         * rlineimpl.py, genutils.py (get_home_dir): py2exe support
-	
+
 2007-05-21  Ville Vainio  <vivainio@gmail.com>
 
 	* platutil_win32.py (set_term_title): handle
@@ -1009,15 +1009,15 @@
 
 	* pycolorize.py, pycolor.1: Paul Mueller's patches that
 	make pycolorize read input from stdin when run without arguments.
-	
+
 	* Magic.py: do not require 'PATH' in %rehash/%rehashx. Closes #155
-	
+
 	* ipy_rehashdir.py: rename ext_rehashdir to ipy_rehashdir, import
 	it in sh profile (instead of ipy_system_conf.py).
 
 	* Magic.py, ipy_rehashdir.py, ipy_profile_sh.py: System command
 	aliases are now lower case on windows (MyCommand.exe => mycommand).
-	
+
 	* macro.py, ipapi.py, iplib.py, Prompts.py: Macro system rehaul.
 	Macros are now callable objects that inherit from ipapi.IPyAutocall,
 	i.e. get autocalled regardless of system autocall setting.
@@ -1058,9 +1058,9 @@
 2007-04-27  Ville Vainio  <vivainio@gmail.com>
 
 	* platutils_win32.py: implement set_term_title for windows
-	
+
 	* Update version number
-	
+
 	* ipy_profile_sh.py: more informative prompt (2 dir levels)
 
 2007-04-26  Walter Doerwald  <walter@livinglogic.de>
@@ -1073,9 +1073,9 @@
 
 	* Extensions/ipy_completers.py: Olivier's module completer now
 	saves the list of root modules if it takes > 4 secs on the first run.
-	
+
 	* Magic.py (%rehashx): %rehashx now clears the completer cache
-	
+
 
 2007-04-26  Fernando Perez  <Fernando.Perez@colorado.edu>
 
@@ -1094,7 +1094,7 @@
 
 	* ipapi.py (expand_alias): Now actually *return* the expanded alias,
 	as opposed to returning nothing.
-	
+
 	* UserConfig/ipy_user_conf.py, ipy_profile_sh.py: do not import
 	ipy_stock_completers on default profile, do import on sh profile.
 
@@ -1118,22 +1118,22 @@
 
 	* Extensions/ipy_render.py: added extension for easy
 	interactive text template rendering (to clipboard). Uses Ka-Ping Yee's
-	'Iptl' template notation, 
-	
+	'Iptl' template notation,
+
 	* Extensions/ipy_completers.py: introduced Olivier Lauzanne's
 	safer & faster 'import' completer.
-	
+
 	* ipapi.py: Introduced new ipapi methods, _ip.defmacro(name, value)
 	and _ip.defalias(name, command).
-	
+
 	* Extensions/ipy_exportdb.py: New extension for exporting all the
 	%store'd data in a portable format (normal ipapi calls like
 	defmacro() etc.)
-	
+
 2007-04-19  Ville Vainio  <vivainio@gmail.com>
 
 	* upgrade_dir.py: skip junk files like *.pyc
-	
+
 	* Release.py: version number to 0.8.1
 
 2007-04-18  Ville Vainio  <vivainio@gmail.com>
@@ -1159,7 +1159,7 @@
 2007-04-07  Fernando Perez  <Fernando.Perez@colorado.edu>
 
 	* Tag 0.8.0 for release.
-	
+
 	* IPython/iplib.py (reloadhist): add API function to cleanly
 	reload the readline history, which was growing inappropriately on
 	every %run call.
@@ -1296,10 +1296,10 @@
 	* iplib.py: recursive alias expansion now works better, so that
 	cases like 'top' -> 'd:/cygwin/top' -> 'ls :/cygwin/top'
 	doesn't trip up the process, if 'd' has been aliased to 'ls'.
-	
+
 	* Extensions/ipy_gnuglobal.py added, provides %global magic
 	for users of http://www.gnu.org/software/global
-	
+
 	* iplib.py: '!command /?' now doesn't invoke IPython's help system.
 	Closes #52. Patch by Stefan van der Walt.
 
@@ -1350,7 +1350,7 @@
 	* IPython/Magic.py (magic_prun): Fix saving of profile info for
 	Python 2.5, where the stats object API changed a little.  Thanks
 	to a bug report by Paul Smith <paul.smith-AT-catugmt.com>.
-	
+
 	* IPython/ColorANSI.py (InputTermColors.Normal): applied Nicolas
 	Pernetty's patch to improve support for (X)Emacs under Win32.
 
@@ -1378,7 +1378,7 @@
 
 	* Extensions/ext_rehashdir.py: Do not do auto_alias
         in %rehashdir, it clobbers %store'd aliases.
-        
+
         * UserConfig/ipy_profile_sh.py: envpersist.py extension
         (beefed up %env) imported for sh profile.
 
@@ -1441,7 +1441,7 @@
 	time, user+system.  This is a more commonly needed metric.  I also
 	introduced the new clocku/clocks to get only user/system time if
 	one wants those instead.
-	
+
 	***WARNING: API CHANGE*** clock() used to return only user time,
 	so if you want exactly the same results as before, use clocku
 	instead.
@@ -1456,7 +1456,7 @@
 2007-02-19  Fernando Perez  <Fernando.Perez@colorado.edu>
 
 	* IPython/demo.py (Demo.re_stop): make dashes optional in demo
-	stop marks. 
+	stop marks.
 	(ClearingMixin): a simple mixin to easily make a Demo class clear
 	the screen in between blocks and have empty marquees. The
 	ClearDemo and ClearIPDemo classes that use it are included.
@@ -1544,39 +1544,39 @@
 
 	* ipmaker.py: more informative message when ipy_user_conf
 	import fails (suggest running %upgrade).
-	
+
 	* tools/run_ipy_in_profiler.py: Utility to see where
 	the time during IPython startup is spent.
-	
+
 2006-12-20  Ville Vainio  <vivainio@gmail.com>
 
 	* 0.7.3 is out - merge all from 0.7.3 branch to trunk
 
 	* ipapi.py: Add new ipapi method, expand_alias.
-	
+
 	* Release.py: Bump up version to 0.7.4.svn
 
 2006-12-17  Ville Vainio  <vivainio@gmail.com>
 
-	* Extensions/jobctrl.py: Fixed &cmd arg arg... 
+	* Extensions/jobctrl.py: Fixed &cmd arg arg...
 	to work properly on posix too
-	
+
 	* Release.py: Update revnum (version is still just 0.7.3).
 
 2006-12-15  Ville Vainio  <vivainio@gmail.com>
 
 	* scripts/ipython_win_post_install: create ipython.py in
 	prefix + "/scripts".
-	
+
 	* Release.py: Update version to 0.7.3.
-    
+
 2006-12-14  Ville Vainio  <vivainio@gmail.com>
 
 	* scripts/ipython_win_post_install: Overwrite old shortcuts
 	if they already exist
 
 	* Release.py: release 0.7.3rc2
-    
+
 2006-12-13  Ville Vainio  <vivainio@gmail.com>
 
 	* Branch and update Release.py for 0.7.3rc1
@@ -1590,33 +1590,33 @@
 2006-12-12  Ville Vainio  <vivainio@gmail.com>
 
 	* ipmaker.py: apply david cournapeau's patch to make
-	import_some work properly even when ipythonrc does 
+	import_some work properly even when ipythonrc does
 	import_some on empty list (it was an old bug!).
 
 	* UserConfig/ipy_user_conf.py, UserConfig/ipythonrc:
 	Add deprecation note to ipythonrc and a url to wiki
 	in ipy_user_conf.py
 
-		 
+
 	* Magic.py (%run): %run myscript.ipy now runs myscript.ipy
 	as if it was typed on IPython command prompt, i.e.
 	as IPython script.
-	
+
 	* example-magic.py, magic_grepl.py: remove outdated examples
 
 2006-12-11  Fernando Perez  <Fernando.Perez@colorado.edu>
 
         * IPython/iplib.py (debugger): prevent a nasty traceback if %debug
         is called before any exception has occurred.
-	
+
 2006-12-08  Ville Vainio  <vivainio@gmail.com>
 
-	* Extensions/ipy_stock_completers.py: fix cd completer 
+	* Extensions/ipy_stock_completers.py: fix cd completer
 	to translate /'s to \'s again.
-	
-	* completer.py: prevent traceback on file completions w/ 
+
+	* completer.py: prevent traceback on file completions w/
 	backslash.
-	
+
 	* Release.py: Update release number to 0.7.3b3 for release
 
 2006-12-07  Ville Vainio  <vivainio@gmail.com>
@@ -1661,31 +1661,31 @@
 
 2006-11-27  Ville Vainio  <vivainio@gmail.com>
 
-	* ipy_stock_completers.py: bzr completer submitted by Stefan van 
-	der Walt. Clean up svn and hg completers by using a common 
-	vcs_completer. 
-	
+	* ipy_stock_completers.py: bzr completer submitted by Stefan van
+	der Walt. Clean up svn and hg completers by using a common
+	vcs_completer.
+
 2006-11-26  Ville Vainio  <vivainio@gmail.com>
 
 	* Remove ipconfig and %config; you should use _ip.options structure
 	directly instead!
-	
+
 	* genutils.py: add wrap_deprecated function for deprecating callables
-	
+
 	* iplib.py: deprecate ipmagic, ipsystem, ipalias. Use _ip.magic and
 	_ip.system instead. ipalias is redundant.
-	
-	* Magic.py: %rehashdir no longer aliases 'cmdname' to 'cmdname.exe' on 
-	win32, but just 'cmdname'. Other extensions (non-'exe') are still made 
+
+	* Magic.py: %rehashdir no longer aliases 'cmdname' to 'cmdname.exe' on
+	win32, but just 'cmdname'. Other extensions (non-'exe') are still made
 	explicit.
 
-	* ipy_stock_completers.py: 'hg' (mercurial VCS) now has a custom 
+	* ipy_stock_completers.py: 'hg' (mercurial VCS) now has a custom
 	completer. Try it by entering 'hg ' and pressing tab.
 
 	* macro.py: Give Macro a useful __repr__ method
-	
+
 	* Magic.py: %whos abbreviates the typename of Macro for brevity.
-	
+
 2006-11-24  Walter Doerwald  <walter@livinglogic.de>
 	* IPython/Extensions/astyle.py: Do a relative import of ipipe, so that
 	we don't get a duplicate ipipe module, where registration of the xrepr
@@ -1697,16 +1697,16 @@
 
 2006-11-24  Ville Vainio  <vivainio@gmail.com>
 
-	* Magic.py, manual_base.lyx: Kirill Smelkov patch: 
+	* Magic.py, manual_base.lyx: Kirill Smelkov patch:
 	try to use "cProfile" instead of the slower pure python
 	"profile"
 
 2006-11-23  Ville Vainio  <vivainio@gmail.com>
 
-	* manual_base.lyx: Kirill Smelkov patch: Fix wrong 
+	* manual_base.lyx: Kirill Smelkov patch: Fix wrong
 	Qt+IPython+Designer link in documentation.
-	
-	* Extensions/ipy_pydb.py: R. Bernstein's patch for passing 
+
+	* Extensions/ipy_pydb.py: R. Bernstein's patch for passing
 	correct Pdb object to %pydb.
 
 
@@ -1718,19 +1718,19 @@
 
 	* upgrade_dir.py: Now actually overwrites a nonmodified user file
 	with one from UserConfig.
-	
-	* ipy_profile_sh.py: Add dummy "depth" to var_expand lambda, 
+
+	* ipy_profile_sh.py: Add dummy "depth" to var_expand lambda,
 	it was missing which broke the sh profile.
-	
+
 	* completer.py: file completer now uses explicit '/' instead
-	of os.path.join, expansion of 'foo' was broken on win32 
-	if there was one directory with name 'foobar'. 
+	of os.path.join, expansion of 'foo' was broken on win32
+	if there was one directory with name 'foobar'.
 
 	* A bunch of patches from Kirill Smelkov:
-	
+
 	* [patch 9/9] doc: point bug-tracker URL to IPythons trac-tickets.
 
-	* [patch 7/9] Implement %page -r (page in raw mode) - 
+	* [patch 7/9] Implement %page -r (page in raw mode) -
 
 	* [patch 5/9] ScientificPython webpage has moved
 
@@ -1742,7 +1742,7 @@
 
 2006-11-08  Ville Vainio  <vivainio@gmail.com>
 
-	* completer.py (attr_matches): catch all exceptions raised 
+	* completer.py (attr_matches): catch all exceptions raised
 	by eval of expr with dots.
 
 2006-11-07  Fernando Perez  <Fernando.Perez@colorado.edu>
@@ -1812,41 +1812,41 @@
 2006-11-02  Ville Vainio  <vivainio@gmail.com>
 
 	* ipy_stock_completers.py: Add %run and %cd completers.
-	
-	* completer.py: Try running custom completer for both 
+
+	* completer.py: Try running custom completer for both
 	"foo" and "%foo" if the command is just "foo". Ignore case
 	when filtering possible completions.
-	
-	* UserConfig/ipy_user_conf.py: install stock completers as default	
-	
+
+	* UserConfig/ipy_user_conf.py: install stock completers as default
+
 	* iplib.py (history_saving_wrapper), debugger(), ipy_pydb.py:
-	simplified readline history save / restore through a wrapper 
+	simplified readline history save / restore through a wrapper
 	function
-	
-	
+
+
 2006-10-31  Ville Vainio  <vivainio@gmail.com>
 
 	* strdispatch.py, completer.py, ipy_stock_completers.py:
-	Allow str_key ("command") in completer hooks. Implement 
-	trivial completer for 'import' (stdlib modules only). Rename 
+	Allow str_key ("command") in completer hooks. Implement
+	trivial completer for 'import' (stdlib modules only). Rename
 	ipy_linux_package_managers.py to ipy_stock_completers.py.
 	SVN completer.
-	
+
 	* Extensions/ledit.py: %magic line editor for easily and
 	incrementally manipulating lists of strings. The magic command
 	name is %led.
 
 2006-10-30  Ville Vainio  <vivainio@gmail.com>
 
-	* Debugger.py, iplib.py (debugger()): Add last set of Rocky 
+	* Debugger.py, iplib.py (debugger()): Add last set of Rocky
 	Bernsteins's patches for pydb integration.
 	http://bashdb.sourceforge.net/pydb/
-	
+
 	* strdispatch.py, iplib.py, completer.py, IPython/__init__.py,
-	Extensions/ipy_linux_package_managers.py, hooks.py: Implement 
-	custom completer hook to allow the users to implement their own 
-	completers. See ipy_linux_package_managers.py for example. The 
-	hook name is 'complete_command'. 
+	Extensions/ipy_linux_package_managers.py, hooks.py: Implement
+	custom completer hook to allow the users to implement their own
+	completers. See ipy_linux_package_managers.py for example. The
+	hook name is 'complete_command'.
 
 2006-10-28  Fernando Perez  <Fernando.Perez@colorado.edu>
 
@@ -1868,11 +1868,11 @@
 
 2006-10-28  Ville Vainio  <vivainio@gmail.com>
 
-	* Magic.py (%run): Save and restore the readline history from 
-	file around %run commands to prevent side effects from 
+	* Magic.py (%run): Save and restore the readline history from
+	file around %run commands to prevent side effects from
 	%runned programs that might use readline (e.g. pydb).
 
-	* extensions/ipy_pydb.py: Adds %pydb magic when imported, for 
+	* extensions/ipy_pydb.py: Adds %pydb magic when imported, for
 	invoking the pydb enhanced debugger.
 
 2006-10-23  Walter Doerwald  <walter@livinglogic.de>
@@ -1894,11 +1894,11 @@
 
 2006-10-14  Ville Vainio  <vivainio@gmail.com>
 
-	* Magic.py, ipython.el: applied first "safe" part of Rocky 
+	* Magic.py, ipython.el: applied first "safe" part of Rocky
 	Bernstein's patch set for pydb integration.
 
 	* Magic.py (%unalias, %alias): %store'd aliases can now be
-	removed with '%unalias'. %alias w/o args now shows most 
+	removed with '%unalias'. %alias w/o args now shows most
 	interesting (stored / manually defined) aliases last
 	where they catch the eye w/o scrolling.
 
@@ -1911,8 +1911,8 @@
 	* jobctrl.py: Add new "jobctrl" extension for spawning background
 	processes with "&find /". 'import jobctrl' to try it out. Requires
 	'subprocess' module, standard in python 2.4+.
-	
-	* iplib.py (expand_aliases, handle_alias): Aliases expand transitively, 
+
+	* iplib.py (expand_aliases, handle_alias): Aliases expand transitively,
 	so if foo -> bar and bar -> baz, then foo -> baz.
 
 2006-10-09  Fernando Perez  <Fernando.Perez@colorado.edu>
@@ -1924,8 +1924,8 @@
 
 2006-10-03  Ville Vainio  <vivainio@gmail.com>
 
-	* iplib.py (raw_input, interact): Return ValueError catching for 
-	raw_input. Fixes infinite loop for sys.stdin.close() or 
+	* iplib.py (raw_input, interact): Return ValueError catching for
+	raw_input. Fixes infinite loop for sys.stdin.close() or
 	sys.stdout.close().
 
 2006-09-27  Fernando Perez  <Fernando.Perez@colorado.edu>
@@ -1944,7 +1944,7 @@
 
 	* IPython/ultraTB.py (TBTools.set_colors): Make sure that ipdb
 	color scheme is updated as well when color scheme is changed
-	interactively. 
+	interactively.
 
 2006-09-27  Ville Vainio  <vivainio@gmail.com>
 
@@ -1960,7 +1960,7 @@
 2006-08-12  Ville Vainio  <vivainio@gmail.com>
 
 	* Fakemodule.py, OInspect.py: Reverted 2006-08-11 mods,
-	they broke unittest 
+	they broke unittest
 
 2006-08-11  Ville Vainio  <vivainio@gmail.com>
 
@@ -2042,13 +2042,13 @@
 2006-07-08  Ville Vainio  <vivainio@gmail.com>
 
 	* Magic.py: %cpaste now strips > from the beginning of lines
-	to ease pasting quoted code from emails. Contributed by 
+	to ease pasting quoted code from emails. Contributed by
 	Stefan van der Walt.
 
 2006-06-29  Ville Vainio  <vivainio@gmail.com>
 
 	* ipmaker.py, Shell.py: qt4agg matplotlib backend support for pylab
-	mode, patch contributed by Darren Dale. NEEDS TESTING! 
+	mode, patch contributed by Darren Dale. NEEDS TESTING!
 
 2006-06-28  Walter Doerwald  <walter@livinglogic.de>
 
@@ -2058,8 +2058,8 @@
 
 2006-06-27  Ville Vainio  <vivainio@gmail.com>
 
-	* Magic.py (_inspect, _ofind) Apply David Huard's 
-	patch for displaying the correct docstring for 'property' 
+	* Magic.py (_inspect, _ofind) Apply David Huard's
+	patch for displaying the correct docstring for 'property'
 	attributes.
 
 2006-06-23  Walter Doerwald  <walter@livinglogic.de>
@@ -2103,12 +2103,12 @@
 	used to create prompts dynamically, instead of the "old" way of
 	assigning "magic" strings to prompt_in1 and prompt_in2. The old
 	way still works (it's invoked by the default hook), of course.
-	
+
 	* Prompts.py: added generate_output_prompt hook for altering output
 	prompt
 
 	* Release.py: Changed version string to 0.7.3.svn.
-	
+
 2006-06-15  Walter Doerwald  <walter@livinglogic.de>
 
 	* IPython/Extensions/ibrowse.py: Change _BrowserLevel.moveto() so that
@@ -2166,7 +2166,7 @@
 
 	* Magic.py (magic_rehashx): Honor no_alias list earlier in
 	%rehashx, to avoid clobbering builtins in ipy_profile_sh.py
-	
+
 	* upgrade_dir.py: try import 'path' module a bit harder
 	(for %upgrade)
 
@@ -2229,7 +2229,7 @@
 
 	* IPython/ipmaker.py (make_IPython): modify sys.argv fix (below)
 	so that it doesn't break tkinter apps.
-	
+
 	* IPython/iplib.py (_prefilter): fix bug where aliases would
 	shadow variables when autocall was fully off.  Reported by SAGE
 	author William Stein.
@@ -2374,12 +2374,12 @@
 	* iplib.py, ipmaker.py: .ipy extension now means "ipython batch file"
 	in command line. E.g. "ipython test.ipy" runs test.ipy with ipython
 	prefilters, allowing stuff like magics and aliases in the file.
-	
+
 	* Prompts.py, Extensions/clearcmd.py, ipy_system_conf.py: %clear magic
 	added. Supported now are "%clear in" and "%clear out" (clear input and
 	output history, respectively). Also fixed CachedOutput.flush to
 	properly flush the output cache.
-	
+
 	* Extensions/pspersistence.py: Fix %store to avoid "%store obj.attr"
 	half-success (and fail explicitly).
 
@@ -2392,17 +2392,17 @@
 
 	* iplib.py: Quote aliases with spaces in the name.
 	"c:\program files\blah\bin" is now legal alias target.
-	
+
 	* ext_rehashdir.py: Space no longer allowed as arg
 	separator, since space is legal in path names.
-	
+
 2006-03-16  Ville Vainio  <vivainio@gmail.com>
 
 	* upgrade_dir.py: Take path.py from Extensions, correcting
 	%upgrade magic
-	
+
 	* ipmaker.py: Suggest using %upgrade if ipy_user_conf.py isn't found.
-	
+
 	* hooks.py: Only enclose editor binary in quotes if legal and
 	necessary (space in the name, and is an existing file). Fixes a bug
 	reported by Zachary Pincus.
@@ -2411,7 +2411,7 @@
 
 	* Manual: thanks to a tip on proper color handling for Emacs, by
 	Eric J Haywiser <ejh1-AT-MIT.EDU>.
-	
+
 	* ipython.el: close http://www.scipy.net/roundup/ipython/issue57
 	by applying the provided patch.  Thanks to Liu Jin
 	<m.liu.jin-AT-gmail.com> for the contribution.  No problems under
@@ -2464,7 +2464,7 @@
 2006-02-15  Ville Vainio  <vivainio@gmail.com>
 
 	* Magic.py: %Pprint works again
-	
+
 	* Extensions/ipy_sane_defaults.py: Provide everything provided
 	in default ipythonrc, to make it possible to have a completely empty
 	ipythonrc (and thus completely rc-file free configuration)
@@ -2486,16 +2486,16 @@
 2006-02-10  Ville Vainio  <vivainio@gmail.com>
 
 	* genutils.py: getoutput now works in win32 too
-	
+
 	* completer.py: alias and magic completion only invoked
 	at the first "item" in the line, to avoid "cd %store"
 	nonsense.
-	
+
 2006-02-09  Ville Vainio  <vivainio@gmail.com>
 
 	* test/*: Added a unit testing framework (finally).
 	'%run runtests.py' to run test_*.
-	
+
 	* ipapi.py: Exposed runlines and set_custom_exc
 
 2006-02-07  Ville Vainio  <vivainio@gmail.com>
@@ -2524,12 +2524,12 @@
 
 	* setup.py, eggsetup.py: easy_install ipython==dev works
 	correctly now (on Linux)
-	
+
 	* ipy_user_conf,ipmaker: user config changes, removed spurious
 	warnings
-	
+
 	* iplib: if rc.banner is string, use it as is.
-	
+
 	* Magic: %pycat accepts a string argument and pages it's contents.
 
 
@@ -2543,15 +2543,15 @@
 	results are immediately accessible from othes sessions. The database
 	is also available for use by user extensions. See:
 	http://www.python.org/pypi/pickleshare
-	
+
 	* hooks.py: Two new hooks, 'shutdown_hook' and 'late_startup_hook'.
-	
+
 	* aliases can now be %store'd
-	
+
 	* path.py moved to Extensions so that pickleshare does not need
 	IPython-specific import. Extensions added to pythonpath right
 	at __init__.
-	
+
 	* iplib.py: ipalias deprecated/redundant; aliases are converted and
 	called with _ip.system and the pre-transformed command string.
 
@@ -2571,7 +2571,7 @@
 	Makes ipmagic (-> _ip.magic), ipsystem (-> _ip.system)
 	and ip_set_hook (-> _ip.set_hook) redundant. % and !
 	syntax now produce _ip.* variant of the commands.
-	
+
 	* "_ip.options().autoedit_syntax = 2" automatically throws
 	user to editor for syntax error correction without prompting.
 
@@ -2581,30 +2581,30 @@
 	'ipython' at argv[0]) executed through command line.
 	NOTE: this DEPRECATES calling ipython with multiple scripts
 	("ipython a.py b.py c.py")
-	
+
 	* iplib.py, hooks.py: Added configurable input prefilter,
 	named 'input_prefilter'. See ext_rescapture.py for example
 	usage.
-	
+
 	* ext_rescapture.py, Magic.py: Better system command output capture
 	through 'var = !ls' (deprecates user-visible %sc). Same notation
 	applies for magics, 'var = %alias' assigns alias list to var.
-	
+
 	* ipapi.py: added meta() for accessing extension-usable data store.
-	
+
 	* iplib.py: added InteractiveShell.getapi(). New magics should be
 	written doing self.getapi() instead of using the shell directly.
-	
+
 	* Magic.py: %store now allows doing %store foo > ~/myfoo.txt and
 	%store foo >> ~/myfoo.txt to store variables to files (in clean
 	textual form, not a restorable pickle).
-	
+
 	* ipmaker.py: now import ipy_profile_PROFILENAME automatically
-	
+
 	* usage.py, Magic.py: added %quickref
-	
+
 	* iplib.py: ESC_PAREN fixes: /f 1 2 -> f(1,2), not f(1 2).
-	
+
 	* GetoptErrors when invoking magics etc. with wrong args
 	are now more helpful:
 	GetoptError: option -l not recognized (allowed: "qb" )
@@ -2618,11 +2618,11 @@
 
 	* iplib.py, hooks.py: 'result_display' hook can return a non-None
 	value to manipulate resulting history entry.
-	
+
 	* ipapi.py: Moved TryNext here from hooks.py. Moved functions
 	to instance methods of IPApi class, to make extending an embedded
 	IPython feasible. See ext_rehashdir.py for example usage.
-	
+
 	* Merged 1071-1076 from branches/0.7.1
 
 
@@ -2632,20 +2632,20 @@
 	eggsetup.py script to build lightweight eggs.
 
 	* Applied changesets 1062 and 1064 before 0.7.1 release.
-	
+
 	* IPython/Magic.py (magic_history): Add '-r' option to %hist, to
 	see the raw input history (without conversions like %ls ->
 	ipmagic("ls")).  After a request from W. Stein, SAGE
 	(http://modular.ucsd.edu/sage) developer.  This information is
 	stored in the input_hist_raw attribute of the IPython instance, so
 	developers can access it if needed (it's an InputList instance).
-	
+
 	* Versionstring = 0.7.2.svn
-	
+
 	* eggsetup.py: A separate script for constructing eggs, creates
 	proper launch scripts even on Windows (an .exe file in
 	\python24\scripts).
-	
+
 	* ipapi.py: launch_new_instance, launch entry point needed for the
 	egg.
 
@@ -2656,13 +2656,13 @@
 2006-01-22  Ville Vainio  <vivainio@gmail.com>
 
 	* Merge from branches/0.7.1 into trunk, revs 1052-1057
-	
+
 	* Versionstring = 0.7.2.svn
-	
+
 	* eggsetup.py: A separate script for constructing eggs, creates
 	proper launch scripts even on Windows (an .exe file in
 	\python24\scripts).
-	
+
 	* ipapi.py: launch_new_instance, launch entry point needed for the
 	egg.
 
@@ -2696,22 +2696,22 @@
 	triggered asynchronously by signal handlers.  Thanks to an
 	automatic crash report, submitted by Colin Kingsley
 	<tercel-AT-gentoo.org>.
-	
+
 2006-01-20  Ville Vainio  <vivainio@gmail.com>
 
 	* Ipython/Extensions/ext_rehashdir.py: Created a usable example
 	(%rehashdir, very useful, try it out) of how to extend ipython
 	with new magics. Also added Extensions dir to pythonpath to make
 	importing extensions easy.
-	
+
 	* %store now complains when trying to store interactively declared
 	classes / instances of those classes.
-	
+
 	* Extensions/ipy_system_conf.py, UserConfig/ipy_user_conf.py,
 	ipmaker.py: Config rehaul. Now ipy_..._conf.py are always imported
 	if they exist, and ipy_user_conf.py with some defaults is created for
 	the user.
-	
+
 	* Startup rehashing done by the config file, not InterpreterExec.
 	This means system commands are available even without selecting the
 	pysh profile. It's the sensible default after all.
@@ -2749,26 +2749,26 @@
 
 	* Ipython/magic.py: Reverted back to old %edit functionality
 	that returns file contents on exit.
-	
+
 	* IPython/path.py: Added Jason Orendorff's "path" module to
 	IPython tree, http://www.jorendorff.com/articles/python/path/.
 	You can get path objects conveniently through %sc, and !!, e.g.:
 	 sc files=ls
 	 for p in files.paths: # or files.p
 	     print p,p.mtime
-	
+
 	* Ipython/iplib.py:"," and ";" autoquoting-upon-autocall
 	now work again without considering the exclusion regexp -
 	hence, things like ',foo my/path' turn to 'foo("my/path")'
 	instead of syntax error.
-	
+
 
 2006-01-14  Ville Vainio  <vivainio@gmail.com>
 
 	* IPython/ipapi.py (ashook, asmagic, options): Added convenience
 	ipapi decorators for python 2.4 users, options() provides access to rc
 	data.
-	
+
 	* IPython/Magic.py (magic_cd): %cd now accepts backslashes
 	as path separators (even on Linux ;-). Space character after
 	backslash (as yielded by tab completer) is still space;
@@ -2790,7 +2790,7 @@
 
 	* IPython/Release.py: Added myself to "authors" list,
 	had to create new files.
-	
+
 	* IPython/iplib.py (handle_shell_escape): fixed logical flaw in
 	shell escape; not a known bug but had potential to be one in the
 	future.
@@ -2798,7 +2798,7 @@
 	* IPython/ipapi.py (added),OInspect.py,iplib.py: "Public"
 	extension API for IPython! See the module for usage example. Fix
 	OInspect for docstring-less magic functions.
-	
+
 
 2006-01-13  Fernando Perez  <Fernando.Perez@colorado.edu>
 
@@ -2832,17 +2832,17 @@
 	magic still doesn't support backslash path delimiters, though. Also
 	deleted all pretense of supporting multiline command strings in
 	!system or %magic commands. Thanks to Jerry McRae for suggestions.
-	
+
 	* doc/build_doc_instructions.txt added. Documentation on how to
 	use doc/update_manual.py, added yesterday. Both files contributed
 	by Jörgen Stenarson <jorgen.stenarson-AT-bostream.nu>. This slates
 	doc/*.sh for deprecation at a later date.
-	
+
 	* /ipython.py Added ipython.py to root directory for
 	zero-installation (tar xzvf ipython.tgz; cd ipython; python
 	ipython.py) and development convenience (no need to keep doing
 	"setup.py install" between changes).
-	
+
 	* Made ! and !! shell escapes work (again) in multiline expressions:
 	  if 1:
 	      !ls
@@ -3269,7 +3269,7 @@
 	help, and Michael Tobis <mtobis-AT-gmail.com> for getting the ball
 	rolling.  This seemingly small issue had tripped a number of users
 	when first installing, so I'm glad to see it gone.
-	
+
 2005-09-27  Fernando Perez  <Fernando.Perez@colorado.edu>
 
 	* IPython/Extensions/numeric_formats.py: fix missing import,
@@ -3456,7 +3456,7 @@
 	readline delimiters configuration to read:
 
 	readline_remove_delims -/~
-	
+
 
 2005-05-31  *** Released version 0.6.14
 
@@ -3510,7 +3510,7 @@
 	* IPython/ultraTB.py (VerboseTB.text): protect against rare but
 	possible crashes caused by a TokenError.  Reported by Ed Schofield
 	<schofield-AT-ftw.at>.
-	
+
 2005-05-06  Fernando Perez  <fperez@colorado.edu>
 
 	* IPython/Shell.py (hijack_wx): Fix to work with WX v.2.6.
@@ -3560,7 +3560,7 @@
 	a patch by John Hunter (implemented differently, though).  Also
 	minor improvements by using .extend instead of + on lists.
 
-	* pysh.py: 
+	* pysh.py:
 
 2005-04-06  Fernando Perez  <fperez@colorado.edu>
 
@@ -3889,7 +3889,7 @@
 	this, and the post-install script uses the proper functions to
 	allow a clean de-installation using the standard Windows Control
 	Panel.
-	
+
 	* IPython/genutils.py (get_home_dir): changed to use the $HOME
 	environment variable under all OSes (including win32) if
 	available.  This will give consistency to win32 users who have set
@@ -4249,7 +4249,7 @@
 	interactive backends from within ipython.  This will just crash
 	the python interpreter, so we can't allow it (but a detailed error
 	is given to the user).
-	
+
 2004-09-28  Fernando Perez  <fperez@colorado.edu>
 
 	* IPython/Shell.py (MatplotlibShellBase.mplot_exec):
@@ -4434,7 +4434,7 @@
 	* genutils.py (Term): Fix misspell of stdin stream (sin->cin).
 
 	* iplib.py : Silence syntax error exceptions in tab-completion.
-	
+
 2004-08-05  Fernando Perez  <fperez@colorado.edu>
 
 	* IPython/Prompts.py (Prompt2.set_colors): Fix incorrectly set
@@ -4655,7 +4655,7 @@
 	module is rather limited in 2.2).  Thanks to a suggestion by Ville
 	Vainio <vivainio@kolumbus.fi>.  For Python 2.3 there should be no
 	problem.
-	
+
 	(Magic.magic_system_verbose): new toggle to print the actual
 	system calls made by ipython.  Mainly for debugging purposes.
 
@@ -4957,7 +4957,7 @@
 	disk (also changed in psource).  Similar fix to the one for
 	ultraTB on 2004-05-06.  Thanks to a bug report by Yann Le Du
 	<yann.ledu-AT-noos.fr>.
-	
+
 	* IPython/Magic.py (Magic.parse_options): Fixed bug where commands
 	with a single option would not be correctly parsed. Closes
 	http://www.scipy.net/roundup/ipython/issue14.  This bug had been
@@ -5071,7 +5071,7 @@
 	mode would behave erratically.  Also increased the number of
 	possible logs in rotate mod to 999.  Thanks to Rod Holland
 	<rhh@StructureLABS.com> for the report and fixes.
-	
+
 2004-02-26  Fernando Perez  <fperez@colorado.edu>
 
 	* IPython/genutils.py (page): Check that the curses module really
@@ -5190,7 +5190,7 @@
 	* IPython/ultraTB.py (VerboseTB.linereader): Improved handling of
 	improperly defined user exceptions.  Thanks to feedback from Mark
 	Russell <mrussell-AT-verio.net>.
-	
+
 2003-08-20  Fernando Perez  <fperez@colorado.edu>
 
 	* IPython/OInspect.py (Inspector.pinfo): changed String Form
@@ -5276,7 +5276,7 @@
         (norm):  Added this function for arbitrary norms (including
         l-infinity).  l1 and l2 are still special cases for convenience
         and speed.
-	
+
 2003-08-03  Fernando Perez  <fperez@colorado.edu>
 
 	* IPython/Magic.py (Magic.magic_edit): Removed all remaining string
@@ -5318,7 +5318,7 @@
 	* IPython/ipmaker.py (make_IPython): Load site._Helper() as help
 	instead of pydoc.help.  This fixes a bizarre behavior where
 	printing '%s' % locals() would trigger the help system.  Now
-	ipython behaves like normal python does.  
+	ipython behaves like normal python does.
 
 	Note that if one does 'from pydoc import help', the bizarre
 	behavior returns, but this will also happen in normal python, so
@@ -5441,7 +5441,7 @@
 	* IPython/Prompts.py (Prompt1.auto_rewrite): Fixed bug which would
 	crash ipython if there was an unmatched '%' in the user's prompt
 	string.  Reported by Thorsten Kampe <thorsten-AT-thorstenkampe.de>.
-	
+
 	* IPython/iplib.py (InteractiveShell.interact): removed the
 	ability to ask the user whether he wants to crash or not at the
 	'last line' exception handler.  Calling functions at that point
@@ -5458,7 +5458,7 @@
 	all files in ~ would be modified at first install (instead of
 	~/.ipython).  This could be potentially disastrous, as the
 	modification (make line-endings native) could damage binary files.
-	
+
 2003-04-10  Fernando Perez  <fperez@colorado.edu>
 
 	* IPython/iplib.py (InteractiveShell.handle_help): Modified to
@@ -5528,7 +5528,7 @@
 	two classes: TermColors and InputTermColors, each with the
 	appropriate escapes for input prompts or normal text.  The code in
 	Prompts.py got slightly more complicated, but this very old and
-	annoying bug is finally fixed.  
+	annoying bug is finally fixed.
 
 	All the credit for nailing down the real origin of this problem
 	and the correct solution goes to Jack Moffit <jack-AT-xiph.org>.
@@ -5723,7 +5723,7 @@
 	* IPython/genutils.py (ask_yes_no): new function for asking yes/no
 	type confirmations. Will need to use it in all of IPython's code
 	consistently.
-	
+
 	* IPython/CrashHandler.py (CrashHandler.__call__): changed the
 	context to print 31 lines instead of the default 5. This will make
 	the crash reports extremely detailed in case the problem is in
@@ -5800,7 +5800,7 @@
 	./ipython.log. Also fixed the corresponding info in @logstart.
 	This and several other fixes in the manuals thanks to reports by
 	François Pinard <pinard-AT-iro.umontreal.ca>.
-	
+
 	* IPython/Logger.py (Logger.switch_log): Fixed error message to
 	refer to @logstart (instead of @log, which doesn't exist).
 
@@ -5809,7 +5809,7 @@
 	<radix-AT-twistedmatrix.com> for the report/fix. This bug had been
 	introduced recently (in 0.2.14pre37) with the fix to the eval
 	problem mentioned below.
-	
+
 2002-10-17  Fernando Perez  <fperez@colorado.edu>
 
 	* IPython/ConfigLoader.py (ConfigLoader.load): Fixes for Windows
@@ -5819,12 +5819,12 @@
 	this function to fix a problem reported by Alex Schmolck. He saw
 	it with list comprehensions and generators, which were getting
 	called twice. The real problem was an 'eval' call in testing for
-	automagic which was evaluating the input line silently. 
+	automagic which was evaluating the input line silently.
 
 	This is a potentially very nasty bug, if the input has side
 	effects which must not be repeated. The code is much cleaner now,
 	without any blanket 'except' left and with a regexp test for
-	actual function names. 
+	actual function names.
 
 	But an eval remains, which I'm not fully comfortable with. I just
 	don't know how to find out if an expression could be a callable in
@@ -5864,7 +5864,7 @@
 
 	* IPython/Gnuplot2.py (PlotItem): Added 'index' option for
 	Gnuplot.File objects.
-	      
+
 2002-07-23  Fernando Perez  <fperez@colorado.edu>
 
 	* IPython/genutils.py (timing): Added timings() and timing() for
@@ -5914,7 +5914,7 @@
 	* IPython/ipmaker.py (make_IPython): default editor value set to
 	'0' (a string), to match the rc file. Otherwise will crash when
 	.strip() is called on it.
-	
+
 
 2002-06-28  Fernando Perez  <fperez@colorado.edu>
 
@@ -6537,7 +6537,7 @@
 	a simple command line switch (-upgrade, also new).
 
 	* IPython/Magic.py (Magic.magic_pfile): Made @pfile an alias to
-	@file (convenient for automagic users under Python >= 2.2). 
+	@file (convenient for automagic users under Python >= 2.2).
 	Removed @files (it seemed more like a plural than an abbrev. of
 	'file show').
 
@@ -6551,7 +6551,7 @@
 	* IPython/Prompts.py (CachedOutput.__init__): Massive rewrite of
 	the prompts system. Now all in/out prompt strings are user
 	controllable. This is particularly useful for embedding, as one
-	can tag embedded instances with particular prompts. 
+	can tag embedded instances with particular prompts.
 
 	Also removed global use of sys.ps1/2, which now allows nested
 	embeddings without any problems. Added command-line options for
@@ -6609,7 +6609,7 @@
 2002-02-21  Fernando Perez  <fperez@colorado.edu>
 
 	* Released 0.2.7 (mainly to publish the scoping fix).
-	
+
 	* IPython/Logger.py (Logger.logstate): added. A corresponding
 	@logstate magic was created.
 
@@ -6689,7 +6689,7 @@
 	end-user distro.
 
 	* IPython/Logger.py (Logger.switch_log): Created this to replace
-	logon() and logoff(). It also fixes a nasty crash reported by 
+	logon() and logoff(). It also fixes a nasty crash reported by
 	Philip Hisley <compsys-AT-starpower.net>. Many thanks to him.
 
 	* IPython/iplib.py (complete): got auto-completion to work with
@@ -6817,7 +6817,7 @@
 
 	* IPython/iplib.py (Magic.magic_hist): Changed @hist and @dhist
 	to *not* include the last item given in a range. This brings their
-	behavior in line with Python's slicing: 
+	behavior in line with Python's slicing:
 	  a[n1:n2] -> a[n1]...a[n2-1]
 	It may be a bit less convenient, but I prefer to stick to Python's
 	conventions *everywhere*, so users never have to wonder.
@@ -6828,7 +6828,7 @@
 
 	* Released 0.2.4.
 
-	* IPython/iplib.py (Magic.magic_pdef): 
+	* IPython/iplib.py (Magic.magic_pdef):
 	(InteractiveShell.safe_execfile): report magic lines and error
 	lines without line numbers so one can easily copy/paste them for
 	re-execution.
@@ -7067,7 +7067,7 @@
 	table according to the width of the first column. Nicer, easier to
 	read. Todo: write a generic table_format() which takes a list of
 	lists and prints it nicely formatted, with optional row/column
-	separators and proper padding and justification. 
+	separators and proper padding and justification.
 
 	* Released 0.1.20
 
@@ -7270,7 +7270,7 @@
 	This was one of the last remaining 'visible' bugs (that I know
 	of). I think if I can clean up the session loading so it works
 	100% I'll release a 0.2.0 version on c.p.l (talk to Janko first
-	about licensing).	
+	about licensing).
 
 2001-11-25  Fernando Perez  <fperez@colorado.edu>
 
@@ -7444,14 +7444,14 @@
 		a = 4.2 m/s**2
 	or even
 		a = 4.2 m/s^2
-	
+
 	I use this, but it's also a proof of concept: IPython really is
 	fully user-extensible, even at the level of the parsing of the
 	command line. It's not trivial, but it's perfectly doable.
 
 	* Added 'add_flip' method to inclusion conflict resolver. Fixes
 	the problem of modules being loaded in the inverse order in which
-	they were defined in 
+	they were defined in
 
 	* Version 0.1.8 released, 0.1.9 opened for further work.
 
@@ -7629,7 +7629,7 @@
 	auto-quote escape to ';', it's on home row and next to '. But
 	both auto-quote and auto-paren (still /) escapes are command-line
 	parameters.
-	
+
 
 2001-11-01  Fernando Perez  <fperez@colorado.edu>
 
@@ -7642,11 +7642,11 @@
 	> 0.0.6 for any changes now.
 
 	* Stuff I had put in the ipplib.py changelog:
-	
+
 	Changes to InteractiveShell:
-	
+
 	- Made the usage message a parameter.
-	
+
 	- Require the name of the shell variable to be given. It's a bit
 	of a hack, but allows the name 'shell' not to be hardwired in the
 	magic (@) handler, which is problematic b/c it requires

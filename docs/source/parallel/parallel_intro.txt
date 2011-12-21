@@ -35,14 +35,14 @@ the ``I`` in IPython.  The following are some example usage cases for IPython:
   distributed) interactively using IPython and tools like
   matplotlib/TVTK.
 
-* Develop, test and debug new parallel algorithms 
+* Develop, test and debug new parallel algorithms
   (that may use MPI) interactively.
 
 * Tie together multiple MPI jobs running on different systems into
   one giant distributed and parallel system.
 
-* Start a parallel job on your cluster and then have a remote 	
-  collaborator connect to it and pull back data into their 
+* Start a parallel job on your cluster and then have a remote
+  collaborator connect to it and pull back data into their
   local IPython session for plotting and analysis.
 
 * Run a set of tasks on a set of CPUs using dynamic load balancing.
@@ -83,12 +83,12 @@ IPython engines can connect. For each connected engine, the controller
 manages a queue. All actions that can be performed on the engine go
 through this queue. While the engines themselves block when user code is
 run, the controller hides that from the user to provide a fully
-asynchronous interface to a set of engines. 
+asynchronous interface to a set of engines.
 
 .. note::
 
-    Because the controller listens on a network port for engines to 
-    connect to it, it must be started *before* any engines are started.  
+    Because the controller listens on a network port for engines to
+    connect to it, it must be started *before* any engines are started.
 
 The controller also provides a single point of contact for users who wish to
 utilize the engines connected to the controller. There are different ways of
@@ -102,13 +102,13 @@ interfaces to the controller:
   task farming system.
 
 Advanced users can easily add new custom interfaces to enable other
-styles of parallelism. 
+styles of parallelism.
 
-.. note:: 
+.. note::
 
-	A single controller and set of engines can be accessed 
+	A single controller and set of engines can be accessed
 	through multiple interfaces simultaneously.  This opens the
-	door for lots of interesting things.  
+	door for lots of interesting things.
 
 Controller clients
 ------------------
@@ -157,7 +157,7 @@ ipcontroller-engine.furl
 ipcontroller-tc.furl
     This FURL file is the key that a :class:`TaskClient` must use to
     connect to the task interface of a controller.
-    
+
 ipcontroller-mec.furl
     This FURL file is the key that a :class:`MultiEngineClient` must use
     to connect to the multiengine interface of a controller.
@@ -188,14 +188,14 @@ everything is working correctly, try the following commands:
 .. sourcecode:: ipython
 
 	In [1]: from IPython.kernel import client
-	
+
 	In [2]: mec = client.MultiEngineClient()
-	
+
 	In [4]: mec.get_ids()
 	Out[4]: [0, 1, 2, 3]
-	
+
 	In [5]: mec.execute('print "Hello World"')
-	Out[5]: 
+	Out[5]:
 	<Results List>
 	[0] In [1]: print "Hello World"
 	[0] Out[1]: Hello World
@@ -226,7 +226,7 @@ You are now ready to learn more about the :ref:`MultiEngine
 <parallelmultiengine>` and :ref:`Task <paralleltask>` interfaces to the
 controller.
 
-.. note:: 
+.. note::
 
     Don't forget that the engine, multiengine client and task client all have
     *different* furl files. You must move *each* of these around to an

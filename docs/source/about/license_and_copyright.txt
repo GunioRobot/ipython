@@ -64,7 +64,7 @@ currently active contributors:
 * Stefan van der Walt
 * Barry Wark
 
-If your name is missing, please add it.  
+If your name is missing, please add it.
 
 Our Copyright Policy
 ====================

@@ -35,7 +35,7 @@ The notification center must:
 * Perform as O(1) in the case of no registered observers.
 
 * Permit out-of-process or cross-network extension.
-    
+
 What's not included
 ===================
 
@@ -46,7 +46,7 @@ As written, the :mod:`IPython.kernel.core.notification` module does not:
 
 * Provide zope.interface style interfaces for the notification system (these
   should also be provided by the :mod:`IPython.kernel` module).
-    
+
 Use Cases
 =========
 
@@ -71,7 +71,7 @@ and elsewhere in his front end::
 
     def stdout_notification(self, type, notifying_object, out_string=None):
         self.writeStdOut(out_string)
-    
+
 If everything works, the Interpreter will (according to its published API)
 fire a notification via the
 :data:`IPython.kernel.core.notification.sharedCenter` of type

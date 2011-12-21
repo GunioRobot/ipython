@@ -16,7 +16,7 @@ controller and four IPython engines. The simplest way of doing this is to
 use the ``ipcluster`` command::
 
 	$ ipcluster -n 4
-	
+
 For more detailed information about starting the controller and engines, see our :ref:`introduction <ip1par>` to using IPython for parallel computing.
 
 The magic here is that this single controller and set of engines is running both the MultiEngine and ``Task`` interfaces simultaneously.
@@ -26,9 +26,9 @@ QuickStart Task Farming
 
 First, a quick example of how to start running the most basic Tasks.
 The first step is to import the IPython ``client`` module and then create a ``TaskClient`` instance::
-    
+
     In [1]: from IPython.kernel import client
-    
+
     In [2]: tc = client.TaskClient()
 
 Then the user wrap the commands the user want to run in Tasks::
@@ -54,13 +54,13 @@ This command will block until all the Tasks in ``taskids`` have finished.  Now, 
 Now the user have a list of ``TaskResult`` objects, which have the actual result as a dictionary, but also keep track of some useful metadata about the ``Task``::
 
     In [8]: tr = ``Task``_results[73]
-    
+
     In [9]: tr
     Out[9]: ``TaskResult``[ID:73]:{'a':73}
-    
+
     In [10]: tr.engineid
     Out[10]: 1
-    
+
     In [11]: tr.submitted, tr.completed, tr.duration
     Out[11]: ("2008/03/08 03:41:42", "2008/03/08 03:41:44", 2.12345)
 
@@ -68,7 +68,7 @@ The actual results are stored in a dictionary, ``tr.results``, and a namespace o
 
     In [12]: tr.results['a']
     Out[12]: 73
-    
+
     In [13]: tr.ns.a
     Out[13]: 73
 
@@ -104,48 +104,48 @@ As discussed earlier, the ``TaskClient`` only has a few basic methods.
 
  * ``tc.run(task)``
     ``run`` is the method by which the user submits Tasks.  It takes exactly one argument, a ``Task`` object.  All the advanced control of ``Task`` behavior is handled by properties of the ``Task`` object, rather than the submission command, so they will be discussed later in the `Task`_ section.  ``run`` returns an integer, the ``Task``ID by which the ``Task`` and its results can be tracked and retrieved::
-    
+
         In [4]: ``Task``ID = tc.run(``Task``)
-    
+
  * ``tc.get_task_result(taskid, block=``False``)``
     ``get_task_result`` is the method by which results are retrieved.  It takes a single integer argument, the ``Task``ID`` of the result the user wish to retrieve.  ``get_task_result`` also takes a keyword argument ``block``.  ``block`` specifies whether the user actually want to wait for the result.  If ``block`` is false, as it is by default, ``get_task_result`` will return immediately.  If the ``Task`` has completed, it will return the ``TaskResult`` object for that ``Task``.  But if the ``Task`` has not completed, it will return ``None``.  If the user specify ``block=``True``, then ``get_task_result`` will wait for the ``Task`` to complete, and always return the ``TaskResult`` for the requested ``Task``.
  * ``tc.barrier(taskid(s))``
     ``barrier`` is a synchronization method.  It takes exactly one argument, a ``Task``ID or list of taskIDs.  ``barrier`` will block until all the specified Tasks have completed.  In practice, a barrier is often called between the ``Task`` submission section of the code and the result gathering section::
-        
+
         In [5]: taskIDs = [ tc.run(``Task``) for ``Task`` in myTasks ]
-        
+
         In [6]: tc.get_task_result(taskIDs[-1]) is None
         Out[6]: ``True``
-        
+
         In [7]: tc.barrier(``Task``ID)
-        
+
         In [8]: results = [ tc.get_task_result(tid) for tid in taskIDs ]
-        
+
  * ``tc.queue_status(verbose=``False``)``
     ``queue_status`` is a method for querying the state of the ``TaskControler``.  ``queue_status`` returns a dict of the form::
-        
+
         {'scheduled': Tasks that have been submitted but yet run
          'pending'  : Tasks that are currently running
          'succeeded': Tasks that have completed successfully
          'failed'   : Tasks that have finished with a failure
         }
-    
+
     if @verbose is not specified (or is ``False``), then the values of the dict are integers - the number of Tasks in each state.  if @verbose is ``True``, then each element in the dict is a list of the taskIDs in that state::
-    
+
         In [8]: tc.queue_status()
         Out[8]: {'scheduled': 4,
                 'pending'  : 2,
                 'succeeded': 5,
                 'failed'   : 1
                 }
-        
+
         In [9]: tc.queue_status(verbose=True)
         Out[9]: {'scheduled': [8,9,10,11],
                 'pending'  : [6,7],
                 'succeeded': [0,1,2,4,5],
                 'failed'   : [3]
                 }
-        
+
  * ``tc.abort(taskid)``
     ``abort`` allows the user to abort Tasks that have already been submitted.  ``abort`` will always return immediately.  If the ``Task`` has completed, ``abort`` will raise an ``IndexError ``Task`` Already Completed``.  An obvious case for ``abort`` would be where the user submits a long-running ``Task`` with a number of retries (see ``Task``_ section for how to specify retries) in an interactive session, but realizes there has been a typo.  The user can then abort the ``Task``, preventing certain failures from cluttering up the queue.  It can also be used for parallel search-type problems, where only one ``Task`` will give the solution, so once the user find the solution, the user would want to abort all remaining Tasks to prevent wasted work.
  * ``tc.spin()``
@@ -153,7 +153,7 @@ As discussed earlier, the ``TaskClient`` only has a few basic methods.
      * ``engine`` is available, ``Task`` is submitted, but ``engine`` does not have ``Task``'s dependencies.
      * ``engine`` gets necessary dependencies while no new Tasks are submitted or completed.
      * now ``engine`` can run ``Task``, but a ``Task`` event is required for the ``TaskControler`` to try scheduling ``Task`` again.
-     
+
     ``spin`` is just an empty ping method to ensure that the Controller has scheduled all available Tasks, and should not be needed under most normal circumstances.
 
 That covers the ``TaskClient``, a simple interface to the cluster.  With this, the user can submit jobs (and abort if necessary), request their results, synchronize on arbitrary subsets of jobs.
@@ -166,8 +166,8 @@ The Task Object
 The ``Task`` is the basic object for describing a job.  It can be used in a very simple manner, where the user just specifies a command string to be executed as the ``Task``.  The usage of this first argument is exactly the same as the ``execute`` method of the ``MultiEngine`` (in fact, ``execute`` is called to run the code)::
 
     In [1]: t = client.Task("a = str(id)")
-    
-This ``Task`` would run, and store the string representation of the ``id`` element in ``a`` in each worker's namespace, but it is fairly useless because the user does not know anything about the state of the ``worker`` on which it ran at the time of retrieving results.  It is important that each ``Task`` not expect the state of the ``worker`` to persist after the ``Task`` is completed.  
+
+This ``Task`` would run, and store the string representation of the ``id`` element in ``a`` in each worker's namespace, but it is fairly useless because the user does not know anything about the state of the ``worker`` on which it ran at the time of retrieving results.  It is important that each ``Task`` not expect the state of the ``worker`` to persist after the ``Task`` is completed.
 There are many different situations for using ``Task`` Farming, and the ``Task`` object has many attributes for use in customizing the ``Task`` behavior.  All of a ``Task``'s attributes may be specified in the constructor, through keyword arguments, or after ``Task`` construction through attribute assignment.
 
 Data Attributes
@@ -176,11 +176,11 @@ It is likely that the user may want to move data around before or after executin
 
  * pull = []
     The obvious case is as above, where ``t`` would execute and store the result of ``myfunc`` in ``a``, it is likely that the user would want to bring ``a`` back to their namespace.  This is done through the ``pull`` attribute.  ``pull`` can be a string or list of strings, and it specifies the names of variables to be retrieved.  The ``TaskResult`` object retrieved by ``get_task_result`` will have a dictionary of keys and values, and the ``Task``'s ``pull`` attribute determines what goes into it::
-        
+
         In [2]: t = client.Task("a = str(id)", pull = "a")
-        
+
         In [3]: t = client.Task("a = str(id)", pull = ["a", "id"])
-        
+
  * push = {}
     A user might also want to initialize some data into the namespace before the code part of the ``Task`` is run.  Enter ``push``.  ``push`` is a dictionary of key/value pairs to be loaded from the user's namespace into the worker's immediately before execution::
 
@@ -194,10 +194,10 @@ When a user is running a large number of Tasks, it is likely that the namespace 
 
  * ``clear_after``
     if clear_after is specified ``True``, the worker on which the ``Task`` was run will be reset (via ``engine.reset``) upon completion of the ``Task``.  This can be useful for both Tasks that produce clutter or Tasks whose intermediate data one might wish to be kept private::
-    
+
         In [5]: t = client.Task("a = range(1e10)", pull = "a",clear_after=True)
-        
-    
+
+
  * ``clear_before``
     as one might guess, clear_before is identical to ``clear_after``, but it takes place before the ``Task`` is run.  This ensures that the ``Task`` runs on a fresh worker::
 
@@ -211,11 +211,11 @@ It is possible that Tasks might fail, and there are a variety of reasons this co
 
  * ``retries``
     ``retries`` is an integer, specifying the number of times a ``Task`` is to be retried.  It defaults to zero.  It is often a good idea for this number to be 1 or 2, to protect the ``Task`` from disconnecting engines, but not a large number.  If a ``Task`` is failing 100 times, there is probably something wrong with the ``Task``.  The canonical bad example:
-    
+
         In [7]: t = client.Task("os.kill(os.getpid(), 9)", retries=99)
-        
+
     This would actually take down 100 workers.
-    
+
  * ``recovery_task``
     ``recovery_task`` is another ``Task`` object, to be run in the event of the original ``Task`` still failing after running out of retries.  Since ``recovery_task`` is another ``Task`` object, it can have its own ``recovery_task``.  The chain of Tasks is limitless, except loops are not allowed (that would be bad!).
 
@@ -230,11 +230,11 @@ The ``depend`` attribute of a ``Task`` must be a function of exactly one argumen
     In [8]: def dep(properties):
         ...     return properties["RAM"] > 2**32 # have at least 4GB
     In [9]: t = client.Task("a = bigfunc()", depend=dep)
-    
+
 It is important to note that assignment of values to the properties dict is done entirely by the user, either locally (in the engine) using the EngineAPI, or remotely, through the ``MultiEngineClient``'s get/set_properties methods.
 
 
 
 
 
-    
+

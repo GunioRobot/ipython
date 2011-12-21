@@ -51,7 +51,7 @@ this::
 
     def main():
         c = zmq.Context(1, 1)
-        rep_conn = connection % port_base                              
+        rep_conn = connection % port_base
         pub_conn = connection % (port_base+1)
         print >>sys.__stdout__, "Starting the kernel..."
         print >>sys.__stdout__, "On:",rep_conn, pub_conn
@@ -59,11 +59,11 @@ this::
         reply_socket = c.socket(zmq.XREP)
         reply_socket.bind(rep_conn)
         pub_socket = c.socket(zmq.PUB)
-        pub_socket.bind(pub_conn)                                         
-        stdout = OutStream(session, pub_socket, u'stdout')         
+        pub_socket.bind(pub_conn)
+        stdout = OutStream(session, pub_socket, u'stdout')
         stderr = OutStream(session, pub_socket, u'stderr')
-        sys.stdout = stdout                                                 
-        sys.stderr = stderr                     
+        sys.stdout = stdout
+        sys.stderr = stderr
         display_hook = DisplayHook(session, pub_socket)
         sys.displayhook = display_hook
         kernel = Kernel(session, reply_socket, pub_socket)
